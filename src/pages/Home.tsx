@@ -6,9 +6,9 @@ import compassIcon from "@/assets/compass-icon.png";
 
 const Home = () => {
   const metrics = [
-    { value: "50+", label: "Partnerships" },
-    { value: "200%", label: "Average ROI" },
-    { value: "30%", label: "Cost Efficiency" }
+    { value: "40+", label: "Partnerships" },
+    { value: "80%", label: "Average ROI" },
+    { value: "20%", label: "Cost Efficiency" }
   ];
 
   const pillars = [
@@ -31,14 +31,14 @@ const Home = () => {
 
   const whyItems = [
     {
-      title: "AI-Enhanced Ads",
-      description: "Leverage cutting-edge AI to boost your ad performance and maximize ROI.",
-      icon: "🤖"
+      title: "SME Strategy",
+      description: "Craft bespoke strategies designed specifically for SME success in East Africa's market.",
+      icon: "📊"
     },
     {
-      title: "SME Strategy", 
-      description: "Craft bespoke strategies designed specifically for SME success in Nairobi's market.",
-      icon: "📊"
+      title: "AI-Enhanced Ads", 
+      description: "Leverage cutting-edge AI to boost your ad performance and maximize ROI.",
+      icon: "🤖"
     },
     {
       title: "Client Focus",
@@ -62,7 +62,7 @@ const Home = () => {
             We Engineer Growth—Not Just Campaigns
           </h1>
           <p className="text-xl md:text-2xl text-sailcraft-dark mb-8 fade-in-up" style={{ animationDelay: "0.2s" }}>
-            Unlock your SME's potential with AI-driven strategies tailored for Nairobi's dynamic market
+            Unlock your SME's potential with AI-driven strategies tailored for East Africa's dynamic market
           </p>
           <Button 
             asChild 
@@ -127,7 +127,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Proven Results</h2>
-            <p className="text-xl text-sailcraft-dark">From our work with Nairobi's top SMEs</p>
+            <p className="text-xl text-sailcraft-dark">From our work with East Africa's top SMEs</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {metrics.map((metric, index) => (
@@ -185,7 +185,7 @@ const Home = () => {
               Ready to Outperform Your Limits?
             </h2>
             <p className="text-xl text-sailcraft-dark mb-8">
-              Join Nairobi's top SMEs who trust Sailcraft for their growth journey
+              Join East Africa's top SMEs who trust Sailcraft for their growth journey
             </p>
             <Button 
               asChild 

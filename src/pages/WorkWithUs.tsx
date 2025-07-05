@@ -6,16 +6,10 @@ import { Link } from "react-router-dom";
 const WorkWithUs = () => {
   const criteria = [
     {
-      title: "Revenue",
-      description: "$50K+ annual revenue demonstrates business viability and growth potential",
-      icon: "💰",
-      requirement: "$50K+ Annual"
-    },
-    {
       title: "Location", 
-      description: "Nairobi-based businesses to leverage our local market expertise",
+      description: "East Africa-based businesses to leverage our local market expertise",
       icon: "📍",
-      requirement: "Nairobi-Based"
+      requirement: "East Africa-Based"
     },
     {
       title: "Mindset",
@@ -87,7 +81,7 @@ const WorkWithUs = () => {
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Who We Work With</h2>
             <p className="text-xl text-sailcraft-dark">Partnership criteria for mutual success</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
             {criteria.map((criterion, index) => (
               <Card key={index} className="card-sailcraft text-center">
                 <CardHeader>

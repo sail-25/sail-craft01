@@ -224,7 +224,7 @@ const Contact = () => {
                   <CardTitle className="text-sailcraft-teal">Location</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sailcraft-dark">Nairobi, Kenya</p>
+                  <p className="text-sailcraft-dark">East Africa, Kenya</p>
                   <p className="text-sm text-sailcraft-dark/70 mt-1">East Africa's business hub</p>
                   <div className="mt-4 h-32 bg-gray-100 rounded-lg flex items-center justify-center">
                     <p className="text-sailcraft-dark/70 text-sm">Interactive Map</p>
@@ -294,11 +294,11 @@ const Contact = () => {
             
             <Card>
               <CardHeader>
-                <CardTitle className="text-sailcraft-teal text-lg">Do you work with businesses outside Nairobi?</CardTitle>
+                <CardTitle className="text-sailcraft-teal text-lg">Do you work with businesses outside East Africa?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sailcraft-dark">
-                  While our focus is Nairobi-based SMEs, we do work with select clients across East Africa 
+                  While our focus is East Africa-based SMEs, we do work with select clients across the region 
                   who can benefit from our expertise and market knowledge.
                 </p>
               </CardContent>

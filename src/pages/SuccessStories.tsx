@@ -11,31 +11,31 @@ const SuccessStories = () => {
   
   const caseStudies = [
     {
-      title: "Retail Revival: From Struggling to Thriving",
+      title: "Kenya Glamour Retail: From Struggling to Thriving",
       industry: "Retail",
-      challenge: "Low online visibility and declining foot traffic in their Nairobi store",
+      challenge: "Low online visibility and declining foot traffic in their East Africa store",
       solution: "AI-driven digital marketing campaign with localized targeting and inventory optimization",
       result: "200% increase in online traffic, 150% boost in sales, 40% improvement in inventory turnover",
       testimonial: "Incredible results! Sailcraft didn't just improve our numbers—they transformed our entire approach to business.",
-      client: "Fashion Forward Boutique"
+      client: "Kenya Glamour Boutique"
     },
     {
-      title: "Service Sector Boost: Operational Excellence",
+      title: "Pollwise Transformation: Operational Excellence",
       industry: "Professional Services", 
       challenge: "Inefficient processes leading to high operational costs and client dissatisfaction",
       solution: "Comprehensive process audit, AI-powered workflow optimization, and client management system",
       result: "35% reduction in operational costs, 60% faster service delivery, 95% client satisfaction rate",
       testimonial: "The strategic planning session alone was worth the investment. Our efficiency improved dramatically.",
-      client: "Nairobi Legal Associates"
+      client: "Pollwise Associates"
     },
     {
-      title: "Manufacturing Excellence: Strategic Growth",
+      title: "Thika Textiles: Strategic Growth",
       industry: "Manufacturing",
       challenge: "Limited market reach and outdated production processes affecting competitiveness",
       solution: "Market expansion strategy, production line optimization, and strategic partnerships",
       result: "300% revenue growth, 50% reduction in production costs, expansion to 3 new markets",
       testimonial: "Sailcraft's strategic insight helped us scale beyond our wildest expectations.",
-      client: "Kenya Craft Industries"
+      client: "Thika Textiles Ltd"
     },
     {
       title: "Digital Transformation Success",
@@ -44,7 +44,7 @@ const SuccessStories = () => {
       solution: "Complete digital transformation with custom software solutions and online marketing",
       result: "400% increase in online leads, 70% process automation, doubled monthly revenue",
       testimonial: "Finally, a consultancy that understands both technology and business strategy.",
-      client: "Nairobi Accounting Solutions"
+      client: "East Africa Accounting Solutions"
     },
     {
       title: "Retail Chain Expansion",
@@ -80,7 +80,7 @@ const SuccessStories = () => {
               What Growth Looks Like
             </h1>
             <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto">
-              See how we've turned challenges into opportunities for Nairobi's most ambitious SMEs. 
+              See how we've turned challenges into opportunities for East Africa's most ambitious SMEs. 
               Real businesses, real results, real impact.
             </p>
           </div>

@@ -34,7 +34,7 @@ const About = () => {
       title: "Manufacturing Director"
     },
     {
-      quote: "Finally, a consultancy that understands Nairobi's market. Their tailored approach delivered exceptional results.",
+      quote: "Finally, a consultancy that understands East Africa's market. Their tailored approach delivered exceptional results.",
       author: "Grace Wanjiku",
       title: "Service Sector CEO"
     }
@@ -49,7 +49,7 @@ const About = () => {
             <img src={compassIcon} alt="Compass" className="h-12 w-12 mx-auto mb-6" />
             <h1 className="text-5xl font-bold text-sailcraft-teal mb-6">About Sailcraft Solutions</h1>
             <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto">
-              Engineering growth for Nairobi's most ambitious SMEs through strategic innovation and AI-powered solutions.
+              Engineering growth for East Africa's most ambitious SMEs through strategic innovation and AI-powered solutions.
             </p>
           </div>
           
@@ -57,14 +57,14 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold text-sailcraft-teal mb-6">Our Mission</h2>
               <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
-                To empower Nairobi SMEs with innovative, AI-enhanced solutions for sustainable growth. We believe every business deserves access to world-class strategic thinking and cutting-edge technology.
+                Empower East African SMEs with innovative growth solutions for sustainable business development.
               </p>
               <div className="w-16 h-1 bg-sailcraft-orange"></div>
             </div>
             <div>
               <h2 className="text-3xl font-bold text-sailcraft-teal mb-6">Our Vision</h2>
               <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
-                To be the leading growth partner for SMEs across East Africa, setting the standard for strategic excellence and innovative solutions in emerging markets.
+                Lead SME growth across East Africa through strategic excellence and innovation.
               </p>
               <div className="w-16 h-1 bg-sailcraft-orange"></div>
             </div>
@@ -83,54 +83,13 @@ const About = () => {
               <h2 className="text-4xl font-bold text-sailcraft-teal mb-8">Our Why</h2>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-sailcraft-dark leading-relaxed mb-8">
-                  We understand Nairobi's unique market challenges and opportunities. From navigating regulatory environments to capitalizing on emerging consumer trends, our team brings deep local expertise combined with global best practices.
+                  We understand East Africa's unique market challenges and opportunities. From navigating regulatory environments to capitalizing on emerging consumer trends, our team brings deep local expertise combined with global best practices.
                 </p>
                 <p className="text-xl text-sailcraft-dark leading-relaxed">
                   Every strategy we craft is tailored specifically for the East African market, ensuring your business doesn't just survive—it thrives in one of the world's most dynamic economies.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Team Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Meet the Team</h2>
-            <p className="text-xl text-sailcraft-dark">Strategic minds driving your success</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <Card className="card-sailcraft text-center">
-              <CardHeader>
-                <div className="w-24 h-24 bg-sailcraft-teal rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                  JD
-                </div>
-                <CardTitle className="text-sailcraft-teal text-2xl">Jane Doe</CardTitle>
-                <CardDescription className="text-sailcraft-orange font-medium">CEO & Visionary Leader</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sailcraft-dark">
-                  15 years in digital growth and strategic consulting. Jane has helped over 100 SMEs across East Africa scale their operations and maximize revenue through innovative strategies.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-sailcraft text-center">
-              <CardHeader>
-                <div className="w-24 h-24 bg-sailcraft-teal rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                  JS
-                </div>
-                <CardTitle className="text-sailcraft-teal text-2xl">John Smith</CardTitle>
-                <CardDescription className="text-sailcraft-orange font-medium">CTO & Tech Innovator</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sailcraft-dark">
-                  AI and technology specialist with expertise in implementing cutting-edge solutions for business growth. John ensures our strategies are powered by the latest innovations.
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
@@ -171,13 +130,18 @@ const About = () => {
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="border-sailcraft-teal border-l-4">
                 <CardContent className="pt-6">
-                  <blockquote className="text-sailcraft-dark italic mb-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-sailcraft-teal rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sailcraft-teal">{testimonial.author}</p>
+                      <p className="text-sm text-sailcraft-dark">{testimonial.title}</p>
+                    </div>
+                  </div>
+                  <blockquote className="text-sailcraft-dark italic">
                     "{testimonial.quote}"
                   </blockquote>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-sailcraft-teal">{testimonial.author}</p>
-                    <p className="text-sm text-sailcraft-dark">{testimonial.title}</p>
-                  </div>
                 </CardContent>
               </Card>
             ))}
