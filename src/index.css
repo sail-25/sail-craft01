@@ -2,39 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Sailcraft Solutions Design System - Nautical Professional Theme */
 
 @layer base {
   :root {
+    /* Base colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 208 25% 17%;
 
+    /* Brand colors - Sailcraft nautical theme */
+    --sailcraft-teal: 174 43% 41%;        /* #26A69A */
+    --sailcraft-orange: 14 91% 63%;       /* #FF7043 */
+    --sailcraft-dark-gray: 208 25% 17%;   /* #263238 */
+    --sailcraft-white: 0 0% 100%;         /* #FFFFFF */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--sailcraft-teal)), hsl(var(--sailcraft-teal) / 0.8));
+    --gradient-wave: linear-gradient(90deg, hsl(var(--sailcraft-teal) / 0.1), hsl(var(--sailcraft-teal) / 0.05));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--sailcraft-orange)), hsl(14 91% 58%));
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px hsl(var(--sailcraft-teal) / 0.1);
+    --shadow-hover: 0 8px 30px hsl(var(--sailcraft-teal) / 0.15);
+    --shadow-cta: 0 4px 15px hsl(var(--sailcraft-orange) / 0.3);
+
+    /* Component colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 208 25% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 208 25% 17%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 174 43% 41%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 208 25% 17%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 14 91% 63%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 174 43% 41%;
 
     --radius: 0.5rem;
 
@@ -101,5 +117,130 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom animations and components */
+@layer components {
+  .wave-texture {
+    background: var(--gradient-wave);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .cta-gradient {
+    background: var(--gradient-cta);
+  }
+
+  .card-sailcraft {
+    background: hsl(var(--sailcraft-white));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-sailcraft:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-cta {
+    background: var(--gradient-cta);
+    color: hsl(var(--sailcraft-white));
+    box-shadow: var(--shadow-cta);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px hsl(var(--sailcraft-orange) / 0.4);
+  }
+
+  .pulse-cta {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .wave-animate {
+    animation: wave-flow 3s ease-in-out infinite;
+  }
+
+  .compass-spin {
+    animation: compass-rotate 20s linear infinite;
+  }
+
+  .fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-sailcraft-teal {
+    color: hsl(var(--sailcraft-teal));
+  }
+
+  .text-sailcraft-orange {
+    color: hsl(var(--sailcraft-orange));
+  }
+
+  .text-sailcraft-dark {
+    color: hsl(var(--sailcraft-dark-gray));
+  }
+
+  .bg-sailcraft-teal {
+    background-color: hsl(var(--sailcraft-teal));
+  }
+
+  .bg-sailcraft-orange {
+    background-color: hsl(var(--sailcraft-orange));
+  }
+
+  .border-sailcraft-teal {
+    border-color: hsl(var(--sailcraft-teal));
+  }
+
+  .border-sailcraft-orange {
+    border-color: hsl(var(--sailcraft-orange));
+  }
+}
+
+/* Keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: var(--shadow-cta);
+  }
+  50% {
+    box-shadow: 0 4px 20px hsl(var(--sailcraft-orange) / 0.5);
+  }
+}
+
+@keyframes wave-flow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes compass-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

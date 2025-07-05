@@ -61,7 +61,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Sailcraft brand colors
+				sailcraft: {
+					teal: 'hsl(var(--sailcraft-teal))',
+					orange: 'hsl(var(--sailcraft-orange))',
+					dark: 'hsl(var(--sailcraft-dark-gray))',
+					white: 'hsl(var(--sailcraft-white))'
 				}
+			},
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

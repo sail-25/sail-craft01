@@ -18,6 +18,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Sailcraft custom variants
+        cta: "bg-sailcraft-orange text-white hover:bg-sailcraft-orange/90 shadow-md",
+        hero: "bg-sailcraft-teal text-white hover:bg-sailcraft-teal/90",
       },
       size: {
         default: "h-10 px-4 py-2",
