@@ -7,7 +7,7 @@ import compassIcon from "@/assets/compass-icon.png";
 const Home = () => {
   const metrics = [
     { value: "40+", label: "Partnerships" },
-    { value: "80%", label: "Average ROI" },
+    { value: "80%", label: "ROI" },
     { value: "20%", label: "Cost Efficiency" }
   ];
 
@@ -36,9 +36,9 @@ const Home = () => {
       icon: "📊"
     },
     {
-      title: "AI-Enhanced Ads", 
-      description: "Leverage cutting-edge AI to boost your ad performance and maximize ROI.",
-      icon: "🤖"
+      title: "SME Strategy", 
+      description: "Leverage data-driven insights to create tailored growth strategies for your business.",
+      icon: "🎯"
     },
     {
       title: "Client Focus",
@@ -151,23 +151,26 @@ const Home = () => {
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Success Stories</h2>
             <p className="text-xl text-sailcraft-dark">See how we've transformed businesses</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "Retail Revival", snippet: "Increased sales by 150% through AI-optimized campaigns" },
-              { title: "Service Sector Boost", snippet: "Streamlined operations reducing costs by 40%" },
-              { title: "Manufacturing Excellence", snippet: "Strategic planning led to 200% revenue growth" }
-            ].map((story, index) => (
-              <Card key={index} className="card-sailcraft hover:border-sailcraft-orange cursor-pointer">
-                <CardHeader>
-                  <CardTitle className="text-sailcraft-teal">{story.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-sailcraft-dark">
-                    {story.snippet}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="relative bg-gray-50 rounded-lg p-8 overflow-hidden">
+            <div className="absolute inset-0 opacity-10 bg-gradient-to-r from-sailcraft-teal/20 to-sailcraft-orange/20"></div>
+            <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Kenya Glamour Retail", snippet: "Increased sales by 150% through strategic campaigns" },
+                { title: "Pollwise Transformation", snippet: "Streamlined operations reducing costs by 40%" },
+                { title: "Thika Textiles", snippet: "Strategic planning led to 200% revenue growth" }
+              ].map((story, index) => (
+                <Card key={index} className="card-sailcraft hover:border-sailcraft-orange cursor-pointer">
+                  <CardHeader>
+                    <CardTitle className="text-sailcraft-teal">{story.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-sailcraft-dark">
+                      {story.snippet}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
           <div className="text-center mt-8">
             <Button asChild variant="outline" className="border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white">

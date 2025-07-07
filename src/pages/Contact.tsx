@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail } from "lucide-react";
+import compassIcon from "@/assets/compass-icon.png";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -50,9 +51,17 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Page Header */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ 
+            backgroundImage: `url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&h=600&fit=crop')` 
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-white/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
+            <img src={compassIcon} alt="Compass" className="h-12 w-12 mx-auto mb-6 compass-spin" />
             <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 wave-animate">
               Let's Build Your Growth Engine
             </h1>
@@ -86,7 +95,7 @@ const Contact = () => {
                           value={formData.name}
                           onChange={(e) => handleInputChange("name", e.target.value)}
                           required
-                          className="mt-1"
+                          className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal transition-all"
                         />
                       </div>
                       <div>
@@ -97,7 +106,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={(e) => handleInputChange("email", e.target.value)}
                           required
-                          className="mt-1"
+                          className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal transition-all"
                         />
                       </div>
                     </div>
@@ -109,50 +118,45 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
                         placeholder="+254 XXX XXX XXX"
-                        className="mt-1"
+                        className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal transition-all"
                       />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <Label className="text-sailcraft-dark">I am a... *</Label>
-                        <Select value={formData.role} onValueChange={(value) => handleInputChange("role", value)}>
-                          <SelectTrigger className="mt-1">
-                            <SelectValue placeholder="Select your role" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="owner">Business Owner</SelectItem>
-                            <SelectItem value="manager">Manager</SelectItem>
-                            <SelectItem value="consultant">Consultant</SelectItem>
-                            <SelectItem value="public-figure">Public Figure</SelectItem>
-                            <SelectItem value="sme">SME</SelectItem>
-                            <SelectItem value="startup">Start Up</SelectItem>
-                            <SelectItem value="service-agency">Service Agency</SelectItem>
-                            <SelectItem value="manufacturer">Manufacturer</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <Label className="text-sailcraft-dark">Looking for... *</Label>
-                        <Select value={formData.lookingFor} onValueChange={(value) => handleInputChange("lookingFor", value)}>
-                          <SelectTrigger className="mt-1">
-                            <SelectValue placeholder="Select your need" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="growth">Growth Strategy</SelectItem>
-                            <SelectItem value="efficiency">Operational Efficiency</SelectItem>
-                            <SelectItem value="strategy">Strategic Planning</SelectItem>
-                            <SelectItem value="product-launch">Product Launch</SelectItem>
-                            <SelectItem value="social-media">Social Media Management</SelectItem>
-                            <SelectItem value="marketing">Marketing</SelectItem>
-                            <SelectItem value="ai-automation">AI Automation</SelectItem>
-                            <SelectItem value="website">Website Development</SelectItem>
-                            <SelectItem value="app-development">App Development</SelectItem>
-                            <SelectItem value="custom-software">Custom Software</SelectItem>
-                            <SelectItem value="branding">Branding</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    <div>
+                      <Label className="text-sailcraft-dark">I am a... *</Label>
+                      <Select value={formData.role} onValueChange={(value) => handleInputChange("role", value)}>
+                        <SelectTrigger className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal">
+                          <SelectValue placeholder="Select your role" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="sme">SME</SelectItem>
+                          <SelectItem value="startup">Startup</SelectItem>
+                          <SelectItem value="consultant">Consultant</SelectItem>
+                          <SelectItem value="public-figure">Public Figure</SelectItem>
+                          <SelectItem value="service-agency">Service Agency</SelectItem>
+                          <SelectItem value="manufacturer">Manufacturer</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label className="text-sailcraft-dark">Looking for... *</Label>
+                      <Select value={formData.lookingFor} onValueChange={(value) => handleInputChange("lookingFor", value)}>
+                        <SelectTrigger className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal">
+                          <SelectValue placeholder="Select your need" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="growth">Growth</SelectItem>
+                          <SelectItem value="strategy">Strategy</SelectItem>
+                          <SelectItem value="branding">Branding</SelectItem>
+                          <SelectItem value="ai-automation">AI Automation</SelectItem>
+                          <SelectItem value="app-development">App Development</SelectItem>
+                          <SelectItem value="website">Website</SelectItem>
+                          <SelectItem value="social-media">Social Media Management</SelectItem>
+                          <SelectItem value="marketing">Marketing</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                     </div>
 
                     <div>
@@ -163,14 +167,14 @@ const Contact = () => {
                         onChange={(e) => handleInputChange("message", e.target.value)}
                         placeholder="Tell us about your business goals, current challenges, or any specific questions you have..."
                         rows={4}
-                        className="mt-1"
+                        className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal transition-all"
                       />
                     </div>
 
                     <Button 
                       type="submit"
                       size="lg"
-                      className="btn-cta pulse-cta w-full md:w-auto"
+                      className="btn-cta pulse-cta w-full md:w-auto hover:scale-105 transition-all duration-200"
                     >
                       Launch My Growth Plan
                     </Button>

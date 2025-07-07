@@ -17,7 +17,7 @@ const SuccessStories = () => {
       solution: "AI-driven digital marketing campaign with localized targeting and inventory optimization",
       result: "200% increase in online traffic, 150% boost in sales, 40% improvement in inventory turnover",
       testimonial: "Incredible results! Sailcraft didn't just improve our numbers—they transformed our entire approach to business.",
-      client: "Kenya Glamour Boutique"
+      client: "Kenya Glamour Retail"
     },
     {
       title: "Pollwise Transformation: Operational Excellence",
@@ -26,7 +26,7 @@ const SuccessStories = () => {
       solution: "Comprehensive process audit, AI-powered workflow optimization, and client management system",
       result: "35% reduction in operational costs, 60% faster service delivery, 95% client satisfaction rate",
       testimonial: "The strategic planning session alone was worth the investment. Our efficiency improved dramatically.",
-      client: "Pollwise Associates"
+      client: "Pollwise Transformation"
     },
     {
       title: "Thika Textiles: Strategic Growth",
@@ -35,7 +35,7 @@ const SuccessStories = () => {
       solution: "Market expansion strategy, production line optimization, and strategic partnerships",
       result: "300% revenue growth, 50% reduction in production costs, expansion to 3 new markets",
       testimonial: "Sailcraft's strategic insight helped us scale beyond our wildest expectations.",
-      client: "Thika Textiles Ltd"
+      client: "Thika Textiles"
     },
     {
       title: "Digital Transformation Success",
@@ -111,46 +111,49 @@ const SuccessStories = () => {
       {/* Case Studies Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {filteredCases.map((caseStudy, index) => (
-              <Card key={index} className="card-sailcraft">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="bg-sailcraft-teal/10 text-sailcraft-teal">
-                      {caseStudy.industry}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-sailcraft-teal text-xl mb-2">
-                    {caseStudy.title}
-                  </CardTitle>
-                  <CardDescription className="text-sailcraft-dark">
-                    {caseStudy.client}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-sailcraft-teal mb-2">Challenge</h4>
-                    <p className="text-sailcraft-dark text-sm">{caseStudy.challenge}</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-sailcraft-teal mb-2">Solution</h4>
-                    <p className="text-sailcraft-dark text-sm">{caseStudy.solution}</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-sailcraft-orange mb-2">Results</h4>
-                    <p className="text-sailcraft-dark text-sm font-medium">{caseStudy.result}</p>
-                  </div>
-                  
-                  <div className="border-t pt-4">
-                    <blockquote className="text-sailcraft-dark italic text-sm">
-                      "{caseStudy.testimonial}"
-                    </blockquote>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="relative bg-gray-50 rounded-lg p-8 overflow-hidden">
+            <div className="absolute inset-0 opacity-10 bg-gradient-to-r from-sailcraft-teal/20 to-sailcraft-orange/20"></div>
+            <div className="relative grid md:grid-cols-2 gap-8">
+              {filteredCases.map((caseStudy, index) => (
+                <Card key={index} className="card-sailcraft">
+                  <CardHeader>
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="secondary" className="bg-sailcraft-teal/10 text-sailcraft-teal">
+                        {caseStudy.industry}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-sailcraft-teal text-xl mb-2">
+                      {caseStudy.title}
+                    </CardTitle>
+                    <CardDescription className="text-sailcraft-dark">
+                      {caseStudy.client}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-sailcraft-teal mb-2">Challenge</h4>
+                      <p className="text-sailcraft-dark text-sm">{caseStudy.challenge}</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-sailcraft-teal mb-2">Solution</h4>
+                      <p className="text-sailcraft-dark text-sm">{caseStudy.solution}</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-sailcraft-orange mb-2">Results</h4>
+                      <p className="text-sailcraft-dark text-sm font-medium">{caseStudy.result}</p>
+                    </div>
+                    
+                    <div className="border-t pt-4">
+                      <blockquote className="text-sailcraft-dark italic text-sm">
+                        "{caseStudy.testimonial}"
+                      </blockquote>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
           
           {filteredCases.length === 0 && (

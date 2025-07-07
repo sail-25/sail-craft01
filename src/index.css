@@ -117,7 +117,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
@@ -137,14 +137,15 @@
 
   .card-sailcraft {
     background: hsl(var(--sailcraft-white));
-    border: 1px solid hsl(var(--border));
-    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--sailcraft-teal) / 0.2);
+    box-shadow: var(--shadow-card), 0 0 0 1px hsl(var(--sailcraft-teal) / 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-sailcraft:hover {
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-hover), 0 0 15px hsl(var(--sailcraft-teal) / 0.3);
     transform: translateY(-2px);
+    border-color: hsl(var(--sailcraft-teal) / 0.4);
   }
 
   .btn-cta {

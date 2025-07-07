@@ -57,14 +57,14 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold text-sailcraft-teal mb-6">Our Mission</h2>
               <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
-                Empower East African SMEs with innovative growth solutions for sustainable business development.
+                Empower East African SMEs with innovative growth solutions.
               </p>
               <div className="w-16 h-1 bg-sailcraft-orange"></div>
             </div>
             <div>
               <h2 className="text-3xl font-bold text-sailcraft-teal mb-6">Our Vision</h2>
               <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
-                Lead SME growth across East Africa through strategic excellence and innovation.
+                Lead SME growth across East Africa.
               </p>
               <div className="w-16 h-1 bg-sailcraft-orange"></div>
             </div>
@@ -73,7 +73,8 @@ const About = () => {
       </section>
 
       {/* Our Why Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 wave-texture opacity-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             <div className="absolute inset-0 flex items-center justify-center opacity-5">
@@ -131,8 +132,12 @@ const About = () => {
               <Card key={index} className="border-sailcraft-teal border-l-4">
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-sailcraft-teal rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {testimonial.author.split(' ').map(n => n[0]).join('')}
+                    <div className="w-12 h-12 bg-sailcraft-teal rounded-full flex items-center justify-center text-white font-bold text-sm overflow-hidden">
+                      <img 
+                        src={`https://api.dicebear.com/7.x/initials/svg?seed=${testimonial.author}&backgroundColor=26A69A&textColor=ffffff`} 
+                        alt={testimonial.author}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <p className="font-semibold text-sailcraft-teal">{testimonial.author}</p>
