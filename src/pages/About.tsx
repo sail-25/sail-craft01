@@ -23,22 +23,23 @@ const About = () => {
   ];
 
   const testimonials = [
-    {
-      quote: "Sailcraft transformed our revenue streams—their AI-driven approach is game-changing. Highly recommend!",
-      author: "Sarah Kimani",
-      title: "Local Retail Owner"
-    },
-    {
-      quote: "The strategic planning session alone was worth the investment. Our operational efficiency improved by 35%.",
-      author: "Michael Odhiambo", 
-      title: "Manufacturing Director"
-    },
-    {
-      quote: "Finally, a consultancy that understands East Africa's market. Their tailored approach delivered exceptional results.",
-      author: "Grace Wanjiku",
-      title: "Service Sector CEO"
-    }
-  ];
+  {
+    quote: "We needed more than ads—we needed clarity. Sailcraft helped us position our restaurant brand and guided us through every growth milestone.",
+    author: "Susan Muiruri",
+    title: "Founder, Kilimani Bites Restaurant"
+  },
+  {
+    quote: "From identity to internal systems, Sailcraft helped us structure our legal firm into a digital-first, modern practice.",
+    author: "Peter Maina",
+    title: "Partner, S & P Advocates"
+  },
+  {
+    quote: "Their understanding of East African business dynamics is unmatched. Our online visibility and customer conversion doubled in just three months.",
+    author: "Irene Njoki",
+    title: "CEO, Thika Textiles"
+  }
+];
+
 
   return (
     <div className="min-h-screen pt-16">
