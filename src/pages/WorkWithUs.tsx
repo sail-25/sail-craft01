@@ -52,7 +52,7 @@ const WorkWithUs = () => {
     },
     {
       step: "05",
-      title: "Optimization", 
+      title: "Optimization",
       description: "Continuous monitoring, refinement, and scaling based on performance data",
       duration: "Ongoing"
     }

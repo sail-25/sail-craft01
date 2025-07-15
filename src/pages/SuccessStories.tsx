@@ -251,21 +251,23 @@ const SuccessStories = () => {
       </section>
 
       {/* Mini CTA */}
-      <section className="py-20 bg-sailcraft-teal">
-        <div className="max-w-6xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Your Story Belongs Here
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Ready to become our next success story? Let's discuss your growth potential.
-          </p>
-          <Button 
-            asChild 
-            size="lg" 
-            className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
-          >
-            <Link to="/work-with-us">Start Your Journey</Link>
-          </Button>
+      <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
+        <div className="bg-sailcraft-teal rounded-2xl">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Your Story Belongs Here
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Ready to become our next success story? Let's discuss your growth potential.
+            </p>
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
+            >
+              <Link to="/work-with-us">Start Your Journey</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

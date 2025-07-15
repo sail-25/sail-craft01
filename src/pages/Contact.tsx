@@ -225,11 +225,11 @@ const Contact = () => {
       </section>
 
       {/* Ready for Growth CTA */}
-      <section className="py-16 bg-sailcraft-teal text-white">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Ready for Growth?</h2>
-            <p className="text-white/90 text-lg mb-8">
+      <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
+        <div className="bg-sailcraft-teal rounded-2xl">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+            <h2 className="text-4xl font-bold text-white mb-6">Ready for Growth?</h2>
+            <p className="text-xl text-white/90 mb-8">
               Join 50+ SMEs who have transformed their businesses with Sailcraft Solutions.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -249,7 +249,7 @@ const Contact = () => {
             <Button 
               asChild
               size="lg"
-              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white hover:scale-105 transition-all duration-200"
+              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
             >
               <a href="#contact-form" onClick={(e) => {
                 e.preventDefault();

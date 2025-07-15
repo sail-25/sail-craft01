@@ -184,21 +184,23 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-sailcraft-teal">
-        <div className="max-w-6xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Choose the services that align with your growth goals. We'll craft a customized approach that delivers measurable results.
-          </p>
-          <Button 
-            asChild 
-            size="lg" 
-            className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
-          >
-            <Link to="/contact">Launch My Growth Plan</Link>
-          </Button>
+      <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
+        <div className="bg-sailcraft-teal rounded-2xl">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Choose the services that align with your growth goals. We'll craft a customized approach that delivers measurable results.
+            </p>
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
+            >
+              <Link to="/contact">Launch My Growth Plan</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

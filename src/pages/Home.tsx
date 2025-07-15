@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
@@ -279,19 +280,19 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <div className="wave-texture rounded-lg p-12">
-            <h2 className="text-4xl font-bold text-sailcraft-teal mb-6">
+      <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
+        <div className="bg-sailcraft-teal rounded-2xl">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+            <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Outperform Your Limits?
             </h2>
-            <p className="text-xl text-sailcraft-dark mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Join East Africa's top SMEs who trust Sailcraft for their growth journey
             </p>
             <Button 
               asChild 
               size="lg" 
-              className="btn-cta pulse-cta text-lg px-8 py-6"
+              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
             >
               <Link to="/contact">Schedule a Free Consultation</Link>
             </Button>
