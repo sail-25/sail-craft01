@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -69,26 +68,26 @@ const About = () => {
             <p className="text-xl text-sailcraft-dark">Driving transformation across East Africa</p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="text-center lg:text-left">
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+            <div className="text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-teal/10 rounded-full mb-8">
                 <div className="text-3xl">🎯</div>
               </div>
-              <h3 className="text-3xl font-bold text-sailcraft-teal mb-6">Mission</h3>
-              <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
+              <h3 className="text-2xl font-bold text-sailcraft-teal mb-6">Mission</h3>
+              <p className="text-base text-sailcraft-dark leading-relaxed mb-8">
                 To accelerate SME growth in East Africa through data-driven strategy, intelligent design, and scalable digital innovation.
               </p>
-              <div className="w-20 h-1 bg-sailcraft-orange mx-auto lg:mx-0"></div>
+              <div className="w-20 h-1 bg-sailcraft-orange mx-auto"></div>
             </div>
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-orange/10 rounded-full mb-8">
                 <div className="text-3xl">🚀</div>
               </div>
-              <h3 className="text-3xl font-bold text-sailcraft-teal mb-6">Vision</h3>
-              <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
+              <h3 className="text-2xl font-bold text-sailcraft-teal mb-6">Vision</h3>
+              <p className="text-base text-sailcraft-dark leading-relaxed mb-8">
                 To be East Africa's most trusted partner for digital transformation and sustainable business excellence.
               </p>
-              <div className="w-20 h-1 bg-sailcraft-orange mx-auto lg:mx-0"></div>
+              <div className="w-20 h-1 bg-sailcraft-orange mx-auto"></div>
             </div>
           </div>
         </div>
