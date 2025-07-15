@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -42,31 +43,48 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-16">
+      {/* Hero Section */}
+      <section className="relative py-32 bg-gradient-to-br from-sailcraft-teal/10 to-sailcraft-orange/5 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2834&q=80" 
+            alt="East African Business Landscape" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-sailcraft-teal/80 to-sailcraft-teal/60"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <img src={compassIcon} alt="Compass" className="h-16 w-16 mx-auto mb-8 compass-spin" />
+          <h1 className="text-6xl font-bold text-white mb-8">About Sailcraft Solutions</h1>
+          <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+            Engineering growth for East Africa's most ambitious SMEs through strategic innovation and AI-powered solutions.
+          </p>
+        </div>
+      </section>
+
       {/* Mission & Vision Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <img src={compassIcon} alt="Compass" className="h-12 w-12 mx-auto mb-6" />
-            <h1 className="text-5xl font-bold text-sailcraft-teal mb-6">About Sailcraft Solutions</h1>
-            <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto">
-              Engineering growth for East Africa's most ambitious SMEs through strategic innovation and AI-powered solutions.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-sailcraft-teal mb-6">Our Mission</h2>
-              <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
-                Empower East African SMEs with innovative growth solutions.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-teal/10 rounded-full mb-8">
+                <div className="text-3xl">🎯</div>
+              </div>
+              <h2 className="text-4xl font-bold text-sailcraft-teal mb-6">Our Mission</h2>
+              <p className="text-xl text-sailcraft-dark leading-relaxed mb-8">
+                To accelerate SME growth in East Africa through data-driven strategy, intelligent design, and scalable digital innovation.
               </p>
-              <div className="w-16 h-1 bg-sailcraft-orange"></div>
+              <div className="w-20 h-1 bg-sailcraft-orange mx-auto lg:mx-0"></div>
             </div>
-            <div>
-              <h2 className="text-3xl font-bold text-sailcraft-teal mb-6">Our Vision</h2>
-              <p className="text-lg text-sailcraft-dark leading-relaxed mb-8">
-                Lead SME growth across East Africa.
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-orange/10 rounded-full mb-8">
+                <div className="text-3xl">🚀</div>
+              </div>
+              <h2 className="text-4xl font-bold text-sailcraft-teal mb-6">Our Vision</h2>
+              <p className="text-xl text-sailcraft-dark leading-relaxed mb-8">
+                To be East Africa's most trusted partner for digital transformation and sustainable business excellence.
               </p>
-              <div className="w-16 h-1 bg-sailcraft-orange"></div>
+              <div className="w-20 h-1 bg-sailcraft-orange mx-auto lg:mx-0"></div>
             </div>
           </div>
         </div>
@@ -96,7 +114,7 @@ const About = () => {
       </section>
 
       {/* Values & Differentiators Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Our Values & Differentiators</h2>
@@ -121,7 +139,7 @@ const About = () => {
       </section>
 
       {/* Testimonial Block */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">What Our Clients Say</h2>
@@ -155,7 +173,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-sailcraft-teal">
+      <section className="py-20 bg-sailcraft-teal mx-4 sm:mx-6 lg:mx-8 rounded-2xl my-12">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Partner with Us?
