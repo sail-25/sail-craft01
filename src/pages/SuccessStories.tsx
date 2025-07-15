@@ -1,100 +1,89 @@
 
-import { useState, useEffect } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { ChevronDown } from "lucide-react";
 
 const SuccessStories = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
-  const [api, setApi] = useState<any>();
-  const [current, setCurrent] = useState(0);
   
-  // Auto-rotation for carousel
-  useEffect(() => {
-    if (!api) return;
-
-    const autoplay = setInterval(() => {
-      api.scrollNext();
-    }, 2000);
-
-    return () => clearInterval(autoplay);
-  }, [api]);
-
-  useEffect(() => {
-    if (!api) return;
-
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-  
-  const filters = ["All", "Retail", "Professional Services", "Manufacturing"];
+  const filters = ["All", "Fashion/Retail", "Civic Tech", "Manufacturing", "Food & Beverage", "Legal Services"];
   
   const caseStudies = [
     {
-      title: "Kenya Glamour Retail: From Struggling to Thriving",
-      industry: "Retail",
-      challenge: "Low online visibility and declining foot traffic in their East Africa store",
-      solution: "AI-driven digital marketing campaign with localized targeting and inventory optimization",
-      result: "200% increase in online traffic, 150% boost in sales, 40% improvement in inventory turnover",
-      testimonial: "Incredible results! Sailcraft didn't just improve our numbers—they transformed our entire approach to business.",
-      client: "Kenya Glamour Retail",
+      title: "Kenya Glamour Retail",
+      industry: "Fashion/Retail",
+      client: "A boutique fashion store in Nairobi expanding into online sales",
+      challenge: "The brand struggled with poor online visibility, low in-store traffic, and inconsistent sales despite quality inventory.",
+      solution: "We implemented an AI-driven digital marketing campaign, redesigned their e-commerce website, and integrated automated customer feedback systems across WhatsApp and Instagram.",
+      results: [
+        "70% increase in online-sales traffic within 3 months",
+        "30% increase in in-store footfall", 
+        "3X engagement on across all social pages",
+        "Inventory turnover cycle shortened by 40%"
+      ],
+      testimonial: "Sailcraft didn't just design ads — they understood our culture and made it marketable. Our sales literally doubled.",
       coverImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=250&fit=crop&auto=format"
     },
     {
-      title: "Pollwise Transformation: Operational Excellence",
-      industry: "Professional Services", 
-      challenge: "Inefficient processes leading to high operational costs and client dissatisfaction",
-      solution: "Comprehensive process audit, AI-powered workflow optimization, and client management system",
-      result: "35% reduction in operational costs, 60% faster service delivery, 95% client satisfaction rate",
-      testimonial: "The strategic planning session alone was worth the investment. Our efficiency improved dramatically.",
-      client: "Pollwise Transformation",
+      title: "Pollwise Transformation",
+      industry: "Civic Tech",
+      client: "A civic platform offering opinion polling and sentiment analysis tools",
+      challenge: "Pollwise had robust tech but struggled with awareness and translating insights into revenue from clients like NGOs and media houses.",
+      solution: "Sailcraft provided brand clarity, revamped their web presence, ran targeted B2B marketing, and added a dashboard subscription model.",
+      results: [
+        "3 new media clients onboarded in 60 days",
+        "90% demo-to-subscription conversion",
+        "New recurring revenue stream launched"
+      ],
+      testimonial: "We moved from a promising idea to a viable business with Sailcraft's direction.",
       coverImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop&auto=format"
     },
     {
-      title: "Thika Textiles: Strategic Growth",
+      title: "Thika Textiles",
       industry: "Manufacturing",
-      challenge: "Limited market reach and outdated production processes affecting competitiveness",
-      solution: "Market expansion strategy, production line optimization, and strategic partnerships",
-      result: "300% revenue growth, 50% reduction in production costs, expansion to 3 new markets",
-      testimonial: "Sailcraft's strategic insight helped us scale beyond our wildest expectations.",
-      client: "Thika Textiles",
+      client: "A mid-sized textile firm exporting fabrics to the East African region",
+      challenge: "Manual processes led to delays, poor customer communication, and missed export orders. Their local presence wasn't matched online.",
+      solution: "We digitized their inventory system, automated order tracking, launched a multilingual B2B portal, and improved their export pitch deck with brand visuals.",
+      results: [
+        "60% reduction in order fulfillment time",
+        "3 new national supply contracts signed",
+        "100% increase in RFQ (Request for Quotation) submissions via new portal"
+      ],
+      testimonial: "Sailcraft turned our back-office into a client-winning machine — our systems finally work for us, not against us.",
       coverImage: "https://images.unsplash.com/photo-1558618666-fcce8ea8b727?w=400&h=250&fit=crop&auto=format"
     },
     {
-      title: "Digital Transformation Success",
-      industry: "Professional Services",
-      challenge: "Manual processes and lack of digital presence limiting growth potential",
-      solution: "Complete digital transformation with custom software solutions and online marketing",
-      result: "400% increase in online leads, 70% process automation, doubled monthly revenue",
-      testimonial: "Finally, a consultancy that understands both technology and business strategy.",
-      client: "East Africa Accounting Solutions",
-      coverImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop&auto=format"
-    },
-    {
-      title: "Retail Chain Expansion",
-      industry: "Retail",
-      challenge: "Single location business wanting to expand but lacking strategic framework",
-      solution: "Franchise model development, location analysis, and brand standardization",
-      result: "Successful launch of 5 new locations, 250% brand recognition increase, streamlined operations",
-      testimonial: "From one store to six in just 18 months. Sailcraft made expansion seamless.",
-      client: "Mama's Kitchen Chain",
+      title: "Kilimani Bites – From New Spot to Local Favorite",
+      industry: "Food & Beverage",
+      client: "A mid-range fast-casual restaurant in Kilimani, Nairobi",
+      challenge: "Kilimani Bites had an excellent kitchen team and location — but zero online presence, unclear brand identity, and no system for customer tracking or retention.",
+      solution: "We handled full-spectrum brand development: Designed the logo, color system, menus, signage, and interior branding. Set up a responsive, visually rich website with menu & ordering integration. Implemented a POS-linked CRM for loyalty tracking and feedback collection. Advised on early-stage hiring structure and growth roadmap.",
+      results: [
+        "70% increase in weekly online discovery within 90 days",
+        "Customer rating jumped from 2.8 to 4.5 in under 2 months",
+        "3.5× average monthly orders within 6 months",
+        "A consistent walk-in base + corporate lunch deals secured"
+      ],
+      testimonial: "From a logo to a packed lunch rush—Sailcraft walked with us every step. It's like having your own marketing and ops team from day one.",
       coverImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=250&fit=crop&auto=format"
     },
     {
-      title: "Manufacturing Automation",
-      industry: "Manufacturing", 
-      challenge: "High labor costs and quality control issues affecting profitability",
-      solution: "AI-powered quality control systems and semi-automated production processes",
-      result: "45% reduction in defects, 30% lower labor costs, 80% faster production cycles",
-      testimonial: "The ROI was immediate. Our quality and efficiency reached new heights.",
-      client: "Precision Parts Kenya",
-      coverImage: "https://images.unsplash.com/photo-1581091226825-c6a89e7e4801?w=400&h=250&fit=crop&auto=format"
+      title: "S&P Mwangagi Advocates – Brand Modernization + Automation",
+      industry: "Legal Services",
+      client: "A law firm based in Upper Hill, Nairobi with a focus on commercial litigation and conveyancing",
+      challenge: "S&P Advocates had a good client portfolio but lacked a clear brand voice. Internally, workflows were email-heavy, slow, and untracked — especially for client intake and file handoff.",
+      solution: "Created a clean, modern visual identity (logo, firm colors, slide decks, letterhead). Developed a secure, branded client intake portal with e-signature and document tracking. Integrated task-based workflow automations (case assignment, reminders, internal SLAs) using legal project tools. Delivered a staff onboarding kit for consistent workflow across teams. Published a basic but credible website with team bios and practice focus.",
+      results: [
+        "Intake-to-file open time reduced by 70%",
+        "Improved brand trust led to 4 institutional clients acquired in 3 months",
+        "2x faster team onboarding for new hires",
+        "Elevated firm's image in RFP submissions and networking"
+      ],
+      testimonial: "Sailcraft reshaped how we operate and how we're perceived — it's no longer just business as usual.",
+      coverImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=250&fit=crop&auto=format"
     }
   ];
 
@@ -140,108 +129,87 @@ const SuccessStories = () => {
         </div>
       </section>
 
-      {/* Case Studies Carousel */}
+      {/* Case Studies Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Carousel 
-            setApi={setApi}
-            className="w-full"
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent>
-              {filteredCases.map((caseStudy, index) => (
-                <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
-                  <Collapsible>
-                    <div className="border-2 border-sailcraft-teal/20 rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-sailcraft-teal/60 hover:shadow-[0_0_20px_rgba(38,166,154,0.3)]">
-                      <CollapsibleTrigger className="w-full">
-                        <div className="flex flex-col md:flex-row">
-                          {/* Cover Image */}
-                          <div className="w-full md:w-1/3 h-48 md:h-auto">
-                            <img 
-                              src={caseStudy.coverImage} 
-                              alt={caseStudy.client}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          
-                          {/* Card Preview Content */}
-                          <div className="flex-1 p-6 text-left">
-                            <div className="flex items-center justify-between mb-4">
-                              <Badge variant="secondary" className="bg-sailcraft-teal/10 text-sailcraft-teal">
-                                {caseStudy.industry}
-                              </Badge>
-                              <ChevronDown className="h-5 w-5 text-sailcraft-teal transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                            </div>
-                            
-                            <h3 className="text-xl font-bold text-sailcraft-teal mb-2">
-                              {caseStudy.title}
-                            </h3>
-                            
-                            <p className="text-sailcraft-dark mb-4">
-                              {caseStudy.client}
-                            </p>
-                            
-                            <p className="text-sm text-sailcraft-dark/80">
-                              Click to see full case study details
-                            </p>
-                          </div>
-                        </div>
-                      </CollapsibleTrigger>
-                      
-                      <CollapsibleContent>
-                        <div className="border-t border-sailcraft-teal/20 p-6 bg-gray-50/50">
-                          <div className="grid md:grid-cols-2 gap-6">
-                            <div className="space-y-6">
-                              <div>
-                                <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Challenge</h4>
-                                <p className="text-sailcraft-dark leading-relaxed">{caseStudy.challenge}</p>
-                              </div>
-                              
-                              <div>
-                                <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Solution</h4>
-                                <p className="text-sailcraft-dark leading-relaxed">{caseStudy.solution}</p>
-                              </div>
-                            </div>
-                            
-                            <div className="space-y-6">
-                              <div>
-                                <h4 className="text-lg font-semibold text-sailcraft-orange mb-3">Results</h4>
-                                <p className="text-sailcraft-dark font-medium leading-relaxed">{caseStudy.result}</p>
-                              </div>
-                              
-                              <div className="bg-white p-4 rounded-lg border border-sailcraft-teal/10">
-                                <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Client Testimonial</h4>
-                                <blockquote className="text-sailcraft-dark italic leading-relaxed">
-                                  "{caseStudy.testimonial}"
-                                </blockquote>
-                                <cite className="text-sm text-sailcraft-teal font-medium mt-2 block">
-                                  — {caseStudy.client}
-                                </cite>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </CollapsibleContent>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCases.map((caseStudy, index) => (
+              <Collapsible key={index}>
+                <div className="border-2 border-sailcraft-teal/20 rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-sailcraft-teal/60 hover:shadow-[0_0_20px_rgba(38,166,154,0.3)] h-full flex flex-col">
+                  {/* Cover Image */}
+                  <div className="w-full h-48">
+                    <img 
+                      src={caseStudy.coverImage} 
+                      alt={caseStudy.client}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  {/* Card Preview Content */}
+                  <div className="flex-1 p-6 flex flex-col">
+                    <div className="flex items-center justify-between mb-4">
+                      <Badge variant="secondary" className="bg-sailcraft-teal/10 text-sailcraft-teal">
+                        {caseStudy.industry}
+                      </Badge>
                     </div>
-                  </Collapsible>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-          
-          {/* Carousel indicators */}
-          <div className="flex justify-center space-x-2 mt-6">
-            {filteredCases.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  current === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
-                }`}
-                onClick={() => api?.scrollTo(index)}
-              />
+                    
+                    <h3 className="text-xl font-bold text-sailcraft-teal mb-2">
+                      {caseStudy.title}
+                    </h3>
+                    
+                    <p className="text-sailcraft-dark mb-4 text-sm">
+                      {caseStudy.client}
+                    </p>
+                    
+                    <p className="text-sm text-sailcraft-dark/80 mb-4 flex-1">
+                      {caseStudy.challenge}
+                    </p>
+
+                    <CollapsibleTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white"
+                      >
+                        <span>View Full Case Study</span>
+                        <ChevronDown className="h-4 w-4 ml-2 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                      </Button>
+                    </CollapsibleTrigger>
+                  </div>
+                  
+                  <CollapsibleContent>
+                    <div className="border-t border-sailcraft-teal/20 p-6 bg-gray-50/50">
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Our Solution</h4>
+                          <p className="text-sailcraft-dark leading-relaxed">{caseStudy.solution}</p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-lg font-semibold text-sailcraft-orange mb-3">Results</h4>
+                          <ul className="space-y-2">
+                            {caseStudy.results.map((result, idx) => (
+                              <li key={idx} className="text-sailcraft-dark font-medium flex items-start">
+                                <span className="text-sailcraft-orange mr-2">•</span>
+                                {result}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="bg-white p-4 rounded-lg border border-sailcraft-teal/10">
+                          <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Client Testimonial</h4>
+                          <blockquote className="text-sailcraft-dark italic leading-relaxed">
+                            "{caseStudy.testimonial}"
+                          </blockquote>
+                          <cite className="text-sm text-sailcraft-teal font-medium mt-2 block">
+                            — {caseStudy.title}
+                          </cite>
+                        </div>
+                      </div>
+                    </div>
+                  </CollapsibleContent>
+                </div>
+              </Collapsible>
             ))}
           </div>
           
@@ -283,7 +251,7 @@ const SuccessStories = () => {
       </section>
 
       {/* Mini CTA */}
-      <section className="py-20 bg-sailcraft-teal">
+      <section className="py-20 bg-sailcraft-teal w-full">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Your Story Belongs Here
