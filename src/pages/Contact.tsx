@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import compassIcon from "@/assets/compass-icon.png";
 
 const Contact = () => {
@@ -41,12 +42,6 @@ const Contact = () => {
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
-
-  const trustIndicators = [
-    "Reply within 24 hours",
-    "Confidentiality guaranteed", 
-    "Leveraging local expertise"
-  ];
 
   return (
     <div className="min-h-screen pt-16">
@@ -174,25 +169,13 @@ const Contact = () => {
                     <Button 
                       type="submit"
                       size="lg"
-                      className="btn-cta pulse-cta w-full md:w-auto hover:scale-105 transition-all duration-200"
+                      className="btn-cta pulse-cta w-full hover:scale-105 transition-all duration-200"
                     >
                       Launch My Growth Plan
                     </Button>
                   </form>
                 </CardContent>
               </Card>
-
-              {/* Trust Indicators */}
-              <div className="mt-8">
-                <div className="grid md:grid-cols-3 gap-4 text-center">
-                  {trustIndicators.map((indicator, index) => (
-                    <div key={index} className="text-sailcraft-dark">
-                      <div className="w-2 h-2 bg-sailcraft-teal rounded-full mx-auto mb-2"></div>
-                      <p className="text-sm">{indicator}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Sidebar Info */}
@@ -206,6 +189,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sailcraft-dark">+254 704 201 545</p>
+                  <p className="text-sailcraft-dark">+254 731 060 641</p>
                   <p className="text-sm text-sailcraft-dark/70 mt-1">Mon-Fri, 9AM-6PM EAT</p>
                 </CardContent>
               </Card>
@@ -218,46 +202,21 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sailcraft-dark">info@sailcraftsolutions.com</p>
+                  <p className="text-sailcraft-dark">info.sailcraft@gmail.com</p>
                   <p className="text-sm text-sailcraft-dark/70 mt-1">We respond within 24 hours</p>
                 </CardContent>
               </Card>
 
               <Card className="card-sailcraft">
                 <CardHeader>
-                  <CardTitle className="text-sailcraft-teal">Location</CardTitle>
+                  <CardTitle className="text-sailcraft-teal flex items-center gap-2">
+                    <MapPin className="h-5 w-5" />
+                    Location
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sailcraft-dark">East Africa, Kenya</p>
+                  <p className="text-sailcraft-dark">Moi Avenue, Nairobi</p>
                   <p className="text-sm text-sailcraft-dark/70 mt-1">East Africa's business hub</p>
-                  <div className="mt-4 h-32 bg-gray-100 rounded-lg flex items-center justify-center">
-                    <p className="text-sailcraft-dark/70 text-sm">Interactive Map</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-sailcraft-teal text-white">
-                <CardHeader>
-                  <CardTitle>Ready for Growth?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-white/90 text-sm mb-4">
-                    Join 50+ SMEs who have transformed their businesses with Sailcraft Solutions.
-                  </p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                      <span>Free initial consultation</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                      <span>Custom growth strategy</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                      <span>Measurable results</span>
-                    </div>
-                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -265,13 +224,51 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Ready for Growth CTA */}
+      <section className="py-16 bg-sailcraft-teal text-white">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Ready for Growth?</h2>
+            <p className="text-white/90 text-lg mb-8">
+              Join 50+ SMEs who have transformed their businesses with Sailcraft Solutions.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="w-2 h-2 bg-white rounded-full mx-auto mb-2"></div>
+                <span className="text-white">Free initial consultation</span>
+              </div>
+              <div className="text-center">
+                <div className="w-2 h-2 bg-white rounded-full mx-auto mb-2"></div>
+                <span className="text-white">Custom growth strategy</span>
+              </div>
+              <div className="text-center">
+                <div className="w-2 h-2 bg-white rounded-full mx-auto mb-2"></div>
+                <span className="text-white">Measurable results</span>
+              </div>
+            </div>
+            <Button 
+              asChild
+              size="lg"
+              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white hover:scale-105 transition-all duration-200"
+            >
+              <a href="#contact-form" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' });
+              }}>
+                Start Your Growth Journey
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-sailcraft-teal mb-4">Frequently Asked Questions</h2>
           </div>
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-4xl mx-auto">
             <Card>
               <CardHeader>
                 <CardTitle className="text-sailcraft-teal text-lg">How quickly can we start working together?</CardTitle>
