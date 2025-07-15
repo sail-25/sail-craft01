@@ -7,27 +7,50 @@ import heroImage from "@/assets/hero-sailboat.jpg";
 import compassIcon from "@/assets/compass-icon.png";
 
 const Home = () => {
-  const [api, setApi] = useState<any>();
-  const [current, setCurrent] = useState(0);
+  const [whyApi, setWhyApi] = useState<any>();
+  const [whyCurrent, setWhyCurrent] = useState(0);
+  const [storiesApi, setStoriesApi] = useState<any>();
+  const [storiesCurrent, setStoriesCurrent] = useState(0);
 
+  // Why Sailcraft carousel auto-rotation
   useEffect(() => {
-    if (!api) return;
+    if (!whyApi) return;
 
     const autoplay = setInterval(() => {
-      api.scrollNext();
+      whyApi.scrollNext();
     }, 2000);
 
     return () => clearInterval(autoplay);
-  }, [api]);
+  }, [whyApi]);
 
   useEffect(() => {
-    if (!api) return;
+    if (!whyApi) return;
 
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
+    setWhyCurrent(whyApi.selectedScrollSnap());
+    whyApi.on("select", () => {
+      setWhyCurrent(whyApi.selectedScrollSnap());
     });
-  }, [api]);
+  }, [whyApi]);
+
+  // Success Stories carousel auto-rotation
+  useEffect(() => {
+    if (!storiesApi) return;
+
+    const autoplay = setInterval(() => {
+      storiesApi.scrollNext();
+    }, 2000);
+
+    return () => clearInterval(autoplay);
+  }, [storiesApi]);
+
+  useEffect(() => {
+    if (!storiesApi) return;
+
+    setStoriesCurrent(storiesApi.selectedScrollSnap());
+    storiesApi.on("select", () => {
+      setStoriesCurrent(storiesApi.selectedScrollSnap());
+    });
+  }, [storiesApi]);
 
   const metrics = [
     { value: "40+", label: "Partnerships" },
@@ -112,8 +135,8 @@ const Home = () => {
             <p className="text-xl text-sailcraft-dark">Four pillars that set us apart</p>
           </div>
           <Carousel 
-            setApi={setApi}
-            className="w-full max-w-4xl mx-auto"
+            setApi={setWhyApi}
+            className="w-full"
             opts={{
               align: "start",
               loop: true,
@@ -144,9 +167,9 @@ const Home = () => {
               <button
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  current === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
+                  whyCurrent === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
                 }`}
-                onClick={() => api?.scrollTo(index)}
+                onClick={() => whyApi?.scrollTo(index)}
               />
             ))}
           </div>
@@ -204,27 +227,49 @@ const Home = () => {
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Success Stories</h2>
             <p className="text-xl text-sailcraft-dark">See how we've transformed businesses</p>
           </div>
-          <div className="relative bg-gray-50 rounded-lg p-8 overflow-hidden">
-            <div className="absolute inset-0 opacity-10 bg-gradient-to-r from-sailcraft-teal/20 to-sailcraft-orange/20"></div>
-            <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Carousel 
+            setApi={setStoriesApi}
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent>
               {[
                 { title: "Kenya Glamour Retail", snippet: "Increased sales by 150% through strategic campaigns" },
                 { title: "Pollwise Transformation", snippet: "Streamlined operations reducing costs by 40%" },
                 { title: "Thika Textiles", snippet: "Strategic planning led to 200% revenue growth" }
               ].map((story, index) => (
-                <Card key={index} className="card-sailcraft hover:border-sailcraft-orange cursor-pointer">
-                  <CardHeader>
-                    <CardTitle className="text-sailcraft-teal">{story.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sailcraft-dark">
-                      {story.snippet}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="card-sailcraft hover:border-sailcraft-orange cursor-pointer h-full">
+                    <CardHeader>
+                      <CardTitle className="text-sailcraft-teal">{story.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-sailcraft-dark">
+                        {story.snippet}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
               ))}
-            </div>
+            </CarouselContent>
+          </Carousel>
+          
+          {/* Carousel indicators */}
+          <div className="flex justify-center space-x-2 mt-6">
+            {[0, 1, 2].map((index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  storiesCurrent === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
+                }`}
+                onClick={() => storiesApi?.scrollTo(index)}
+              />
+            ))}
           </div>
+          
           <div className="text-center mt-8">
             <Button asChild variant="outline" className="border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white">
               <Link to="/success">View All Stories</Link>

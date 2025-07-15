@@ -1,13 +1,37 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { ChevronDown } from "lucide-react";
 
 const SuccessStories = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
+  const [api, setApi] = useState<any>();
+  const [current, setCurrent] = useState(0);
+  
+  // Auto-rotation for carousel
+  useEffect(() => {
+    if (!api) return;
+
+    const autoplay = setInterval(() => {
+      api.scrollNext();
+    }, 2000);
+
+    return () => clearInterval(autoplay);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
   
   const filters = ["All", "Retail", "Professional Services", "Manufacturing"];
   
@@ -116,84 +140,108 @@ const SuccessStories = () => {
         </div>
       </section>
 
-      {/* Case Studies Cards */}
+      {/* Case Studies Carousel */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-6">
-            {filteredCases.map((caseStudy, index) => (
-              <Collapsible key={index}>
-                <div className="border-2 border-sailcraft-teal/20 rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-sailcraft-teal/60 hover:shadow-[0_0_20px_rgba(38,166,154,0.3)]">
-                  <CollapsibleTrigger className="w-full">
-                    <div className="flex flex-col md:flex-row">
-                      {/* Cover Image */}
-                      <div className="w-full md:w-1/3 h-48 md:h-auto">
-                        <img 
-                          src={caseStudy.coverImage} 
-                          alt={caseStudy.client}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+          <Carousel 
+            setApi={setApi}
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent>
+              {filteredCases.map((caseStudy, index) => (
+                <CarouselItem key={index} className="md:basis-1/1 lg:basis-1/1">
+                  <Collapsible>
+                    <div className="border-2 border-sailcraft-teal/20 rounded-lg overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:border-sailcraft-teal/60 hover:shadow-[0_0_20px_rgba(38,166,154,0.3)]">
+                      <CollapsibleTrigger className="w-full">
+                        <div className="flex flex-col md:flex-row">
+                          {/* Cover Image */}
+                          <div className="w-full md:w-1/3 h-48 md:h-auto">
+                            <img 
+                              src={caseStudy.coverImage} 
+                              alt={caseStudy.client}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          
+                          {/* Card Preview Content */}
+                          <div className="flex-1 p-6 text-left">
+                            <div className="flex items-center justify-between mb-4">
+                              <Badge variant="secondary" className="bg-sailcraft-teal/10 text-sailcraft-teal">
+                                {caseStudy.industry}
+                              </Badge>
+                              <ChevronDown className="h-5 w-5 text-sailcraft-teal transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                            </div>
+                            
+                            <h3 className="text-xl font-bold text-sailcraft-teal mb-2">
+                              {caseStudy.title}
+                            </h3>
+                            
+                            <p className="text-sailcraft-dark mb-4">
+                              {caseStudy.client}
+                            </p>
+                            
+                            <p className="text-sm text-sailcraft-dark/80">
+                              Click to see full case study details
+                            </p>
+                          </div>
+                        </div>
+                      </CollapsibleTrigger>
                       
-                      {/* Card Preview Content */}
-                      <div className="flex-1 p-6 text-left">
-                        <div className="flex items-center justify-between mb-4">
-                          <Badge variant="secondary" className="bg-sailcraft-teal/10 text-sailcraft-teal">
-                            {caseStudy.industry}
-                          </Badge>
-                          <ChevronDown className="h-5 w-5 text-sailcraft-teal transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                      <CollapsibleContent>
+                        <div className="border-t border-sailcraft-teal/20 p-6 bg-gray-50/50">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div className="space-y-6">
+                              <div>
+                                <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Challenge</h4>
+                                <p className="text-sailcraft-dark leading-relaxed">{caseStudy.challenge}</p>
+                              </div>
+                              
+                              <div>
+                                <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Solution</h4>
+                                <p className="text-sailcraft-dark leading-relaxed">{caseStudy.solution}</p>
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-6">
+                              <div>
+                                <h4 className="text-lg font-semibold text-sailcraft-orange mb-3">Results</h4>
+                                <p className="text-sailcraft-dark font-medium leading-relaxed">{caseStudy.result}</p>
+                              </div>
+                              
+                              <div className="bg-white p-4 rounded-lg border border-sailcraft-teal/10">
+                                <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Client Testimonial</h4>
+                                <blockquote className="text-sailcraft-dark italic leading-relaxed">
+                                  "{caseStudy.testimonial}"
+                                </blockquote>
+                                <cite className="text-sm text-sailcraft-teal font-medium mt-2 block">
+                                  — {caseStudy.client}
+                                </cite>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        
-                        <h3 className="text-xl font-bold text-sailcraft-teal mb-2">
-                          {caseStudy.title}
-                        </h3>
-                        
-                        <p className="text-sailcraft-dark mb-4">
-                          {caseStudy.client}
-                        </p>
-                        
-                        <p className="text-sm text-sailcraft-dark/80">
-                          Click to see full case study details
-                        </p>
-                      </div>
+                      </CollapsibleContent>
                     </div>
-                  </CollapsibleTrigger>
-                  
-                  <CollapsibleContent>
-                    <div className="border-t border-sailcraft-teal/20 p-6 bg-gray-50/50">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Challenge</h4>
-                            <p className="text-sailcraft-dark leading-relaxed">{caseStudy.challenge}</p>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Solution</h4>
-                            <p className="text-sailcraft-dark leading-relaxed">{caseStudy.solution}</p>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="text-lg font-semibold text-sailcraft-orange mb-3">Results</h4>
-                            <p className="text-sailcraft-dark font-medium leading-relaxed">{caseStudy.result}</p>
-                          </div>
-                          
-                          <div className="bg-white p-4 rounded-lg border border-sailcraft-teal/10">
-                            <h4 className="text-lg font-semibold text-sailcraft-teal mb-3">Client Testimonial</h4>
-                            <blockquote className="text-sailcraft-dark italic leading-relaxed">
-                              "{caseStudy.testimonial}"
-                            </blockquote>
-                            <cite className="text-sm text-sailcraft-teal font-medium mt-2 block">
-                              — {caseStudy.client}
-                            </cite>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CollapsibleContent>
-                </div>
-              </Collapsible>
+                  </Collapsible>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          
+          {/* Carousel indicators */}
+          <div className="flex justify-center space-x-2 mt-6">
+            {filteredCases.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  current === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
+                }`}
+                onClick={() => api?.scrollTo(index)}
+              />
             ))}
           </div>
           
