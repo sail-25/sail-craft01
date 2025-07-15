@@ -6,19 +6,24 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+
+    concurrency:
+      group: 'pages'
+      cancel-in-progress: true
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -30,16 +35,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build project with Vite
         run: npm run build
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './dist' # Default Vite output
 
       - name: Deploy to GitHub Pages
         id: deployment
