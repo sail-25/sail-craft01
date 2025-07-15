@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -6,46 +7,58 @@ import compassIcon from "@/assets/compass-icon.png";
 const Services = () => {
   const services = [
     {
-      title: "Financial Planning",
-      description: "Comprehensive financial strategies to secure your SME's future",
-      miniNote: "Expert guidance for budgeting and investments",
-      icon: "💰"
+      title: "Digital Marketing",
+      description: "Elevate your brand with digital marketing campaigns, digital content creation, graphic design, social media management, marketing automation, advert design and publication, brand design, and growth optimization strategies.",
+      miniServices: ["Digital campaigns", "Content creation", "Graphic design", "Social media management", "Marketing automation", "Advert design & publishing", "Brand design", "Growth strategies"],
+      icon: "📣"
     },
     {
-      title: "Marketing Optimization", 
-      description: "Elevate your brand with targeted marketing",
-      miniNote: "Enhance visibility with strategic campaigns",
-      icon: "📈"
-    },
-    {
-      title: "Operational Streamlining",
-      description: "Optimize processes for efficiency",
-      miniNote: "Reduce costs with streamlined workflows",
-      icon: "⚙️"
-    },
-    {
-      title: "HR Solutions",
-      description: "Build a strong team foundation",
-      miniNote: "Tailored talent acquisition and training",
-      icon: "👥"
-    },
-    {
-      title: "Technology Development",
-      description: "Innovative tech for growth",
-      miniNote: "Custom software and website solutions",
+      title: "Technology Solutions",
+      description: "Lead digitally with custom software development, responsive website design, AI-driven e-commerce platforms, robust IT support, and AI design and system implementation.",
+      miniServices: ["Software development", "Website design", "AI e-commerce", "IT support", "AI systems & implementation"],
       icon: "💻"
     },
     {
-      title: "Legal Compliance",
-      description: "Navigate regulations with ease",
-      miniNote: "Expert advice for compliance",
+      title: "Creative Suite",
+      description: "Transform your presence with AI-driven content creation, brand design, social PR, influencer management, creative strategy, and growth-focused campaigns.",
+      miniServices: ["Content creation", "Brand design", "Social PR", "Influencer management", "Public figure branding", "Creative strategy", "Campaign growth"],
+      icon: "🎨"
+    },
+    {
+      title: "Operational Improvement",
+      description: "Optimize operations with AI-driven process optimization, workflow automation, resource management, efficiency audits, and operational analytics for peak performance.",
+      miniServices: ["AI process optimization", "Workflow automation", "Resource management", "Efficiency audits", "Operational analytics"],
+      icon: "⚙️"
+    },
+    {
+      title: "Financial Services",
+      description: "Master your finances with expert auditing, tax preparation and returns, compliance management, and precise accounting for seamless operations.",
+      miniServices: ["Auditing", "Tax preparation & returns", "Compliance management", "Accounting"],
+      icon: "💼"
+    },
+    {
+      title: "Business Development",
+      description: "Propel growth with strategic planning, market analysis, partnership development, and innovative scaling strategies for long-term success.",
+      miniServices: ["Strategic planning", "Market analysis", "Partnership development", "Scaling strategies"],
+      icon: "📊"
+    },
+    {
+      title: "Human Resources",
+      description: "Strengthen your team with comprehensive HR services, HR system implementation, talent acquisition, and tailored training programs.",
+      miniServices: ["HR services", "HR systems", "Talent acquisition", "Team training"],
+      icon: "🧑‍💼"
+    },
+    {
+      title: "Legal and Compliance",
+      description: "Stay compliant with expert legal advisory, automated compliance tracking, contract management, and regulatory guidance.",
+      miniServices: ["Legal advisory", "Compliance tracking", "Contract management", "Regulatory support"],
       icon: "⚖️"
     },
     {
-      title: "Customer Support Enhancement",
-      description: "Improve client satisfaction",
-      miniNote: "Tailored support strategies",
-      icon: "🤝"
+      title: "Customer Service Improvement",
+      description: "Boost loyalty with AI-powered CRM integration, personalized support strategies, real-time feedback systems, and customer experience optimization.",
+      miniServices: ["CRM integration", "Personalized support", "Feedback systems", "Customer experience design"],
+      icon: "🎧"
     }
   ];
 
@@ -54,7 +67,7 @@ const Services = () => {
       {/* Hero Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 wave-texture opacity-10"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <img src={compassIcon} alt="Compass" className="h-16 w-16 mx-auto mb-6 compass-spin" />
             <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 fade-in-up">
@@ -62,7 +75,7 @@ const Services = () => {
             </h1>
             <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto fade-in-up" style={{ animationDelay: "0.2s" }}>
               Comprehensive solutions tailored for East African SMEs. From strategic planning to technology implementation, 
-              we engineering growth across every aspect of your business.
+              we engineer growth across every aspect of your business.
             </p>
           </div>
         </div>
@@ -70,33 +83,37 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="w-32 h-1 bg-sailcraft-teal mx-auto mb-6 wave-animate"></div>
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">What We Deliver</h2>
-            <p className="text-xl text-sailcraft-dark">Strategic expertise across seven core business areas</p>
+            <p className="text-xl text-sailcraft-dark">Strategic expertise across nine core business areas</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="card-sailcraft text-center h-full border-2 border-transparent hover:border-sailcraft-teal/20 transition-all duration-300 group">
+              <Card key={index} className="card-sailcraft text-left h-full border-2 border-transparent hover:border-sailcraft-teal/20 transition-all duration-300 group">
                 <CardHeader>
-                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                      {service.icon}
+                    </div>
+                    <CardTitle className="text-sailcraft-teal text-xl group-hover:text-sailcraft-orange transition-colors duration-300">
+                      {service.title}
+                    </CardTitle>
                   </div>
-                  <CardTitle className="text-sailcraft-teal text-xl mb-2 group-hover:text-sailcraft-orange transition-colors duration-300">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-sailcraft-dark font-medium text-base">
+                  <CardDescription className="text-sailcraft-dark font-medium text-base leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex-grow flex items-end">
-                  <div className="w-full">
-                    <div className="h-px bg-sailcraft-teal/20 w-full mb-4"></div>
-                    <p className="text-sm text-sailcraft-dark/80 italic">
-                      {service.miniNote}
-                    </p>
+                <CardContent className="flex-grow">
+                  <div className="h-px bg-sailcraft-teal/20 w-full mb-4"></div>
+                  <div className="space-y-1">
+                    {service.miniServices.map((miniService, idx) => (
+                      <p key={idx} className="text-sm text-sailcraft-dark/80 italic">
+                        • {miniService}
+                      </p>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -110,13 +127,13 @@ const Services = () => {
         <div className="absolute inset-0 flex items-center justify-center opacity-5">
           <img src={compassIcon} alt="Compass Watermark" className="h-64 w-64" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Why Our Services Work</h2>
             <p className="text-xl text-sailcraft-dark">Built for East African markets with global expertise</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 bg-sailcraft-teal rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">1</span>
@@ -151,12 +168,12 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-sailcraft-teal">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-sailcraft-teal w-full">
+        <div className="w-full text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto">
             Choose the services that align with your growth goals. We'll craft a customized approach that delivers measurable results.
           </p>
           <Button 
