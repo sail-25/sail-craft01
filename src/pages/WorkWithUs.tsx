@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const WorkWithUs = () => {
   const criteria = [
     {
-      title: "Location", 
-      description: "East Africa-based businesses to leverage our local market expertise",
-      icon: "📍",
-      requirement: "East Africa-Based"
+      title: "Profile", 
+      description: "Vision-driven, seeking growth, digital transformation, market expansion, or sustainable impact — and ready to act on it",
+      icon: "🎯",
+      requirement: "Vision-Driven"
     },
     {
       title: "Mindset",
@@ -227,25 +227,27 @@ const WorkWithUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-sailcraft-teal">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Book Your Discovery Call
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Take the first step toward engineering your growth. Let's explore if we're the right fit for your business.
-          </p>
-          <div className="space-y-4">
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
-            >
-              <Link to="/contact">Schedule Discovery Call</Link>
-            </Button>
-            <p className="text-white/70 text-sm">
-              Free 30-minute consultation • No obligation • Confidential discussion
+      <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
+        <div className="bg-sailcraft-teal rounded-2xl">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Book Your Discovery Call
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Take the first step toward engineering your growth. Let's explore if we're the right fit for your business.
             </p>
+            <div className="space-y-4">
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
+              >
+                <Link to="/contact">Schedule Discovery Call</Link>
+              </Button>
+              <p className="text-white/70 text-sm">
+                Free 30-minute consultation • No obligation • Confidential discussion
+              </p>
+            </div>
           </div>
         </div>
       </section>
