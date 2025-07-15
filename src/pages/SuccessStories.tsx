@@ -95,7 +95,7 @@ const SuccessStories = () => {
     <div className="min-h-screen pt-16">
       {/* Intro Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 wave-animate">
               What Growth Looks Like
@@ -110,7 +110,7 @@ const SuccessStories = () => {
 
       {/* Filters Section */}
       <section className="py-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-4">
             {filters.map((filter) => (
               <Button
@@ -131,7 +131,7 @@ const SuccessStories = () => {
 
       {/* Case Studies Grid */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCases.map((caseStudy, index) => (
               <Collapsible key={index}>
@@ -168,7 +168,7 @@ const SuccessStories = () => {
                     <CollapsibleTrigger asChild>
                       <Button 
                         variant="outline" 
-                        className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white"
+                        className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group"
                       >
                         <span>View Full Case Study</span>
                         <ChevronDown className="h-4 w-4 ml-2 transition-transform duration-200 group-data-[state=open]:rotate-180" />
@@ -225,7 +225,7 @@ const SuccessStories = () => {
 
       {/* Stats Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Our Impact by Numbers</h2>
           </div>
@@ -251,8 +251,8 @@ const SuccessStories = () => {
       </section>
 
       {/* Mini CTA */}
-      <section className="py-20 bg-sailcraft-teal w-full">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-sailcraft-teal">
+        <div className="max-w-6xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold text-white mb-6">
             Your Story Belongs Here
           </h2>
