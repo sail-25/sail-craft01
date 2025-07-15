@@ -1,10 +1,34 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/hero-sailboat.jpg";
 import compassIcon from "@/assets/compass-icon.png";
 
 const Home = () => {
+  const [api, setApi] = useState<any>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const autoplay = setInterval(() => {
+      api.scrollNext();
+    }, 2000);
+
+    return () => clearInterval(autoplay);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   const metrics = [
     { value: "40+", label: "Partnerships" },
     { value: "80%", label: "ROI" },
@@ -31,19 +55,24 @@ const Home = () => {
 
   const whyItems = [
     {
-      title: "SME Strategy",
-      description: "Craft bespoke strategies designed specifically for SME success in East Africa's market.",
-      icon: "📊"
+      title: "Holistic Solutions",
+      description: "A one-stop shop for all SME needs, reducing complexity.",
+      icon: "🏢"
     },
     {
-      title: "SME Strategy", 
-      description: "Leverage data-driven insights to create tailored growth strategies for your business.",
+      title: "Customized Approach", 
+      description: "Tailored strategies designed to meet specific business goals.",
       icon: "🎯"
     },
     {
-      title: "Client Focus",
-      description: "Prioritize client needs with personalized support and dedicated partnership.",
-      icon: "🤝"
+      title: "Proven Results",
+      description: "A track record of empowering SMEs to achieve sustainable growth.",
+      icon: "📈"
+    },
+    {
+      title: "Local Advantage",
+      description: "Deep understanding of Kenya's business environment, ensuring relevance and impact.",
+      icon: "🌍"
     }
   ];
 
@@ -80,21 +109,45 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Why Sailcraft?</h2>
-            <p className="text-xl text-sailcraft-dark">Three pillars that set us apart</p>
+            <p className="text-xl text-sailcraft-dark">Four pillars that set us apart</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {whyItems.map((item, index) => (
-              <Card key={index} className="card-sailcraft text-center">
-                <CardHeader>
-                  <div className="text-4xl mb-4">{item.icon}</div>
-                  <CardTitle className="text-sailcraft-teal">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-sailcraft-dark text-base">
-                    {item.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+          <Carousel 
+            setApi={setApi}
+            className="w-full max-w-4xl mx-auto"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent>
+              {whyItems.map((item, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="card-sailcraft text-center h-full">
+                    <CardHeader>
+                      <div className="text-4xl mb-4">{item.icon}</div>
+                      <CardTitle className="text-sailcraft-teal">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-sailcraft-dark text-base">
+                        {item.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          
+          {/* Carousel indicators */}
+          <div className="flex justify-center space-x-2 mt-6">
+            {whyItems.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  current === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
+                }`}
+                onClick={() => api?.scrollTo(index)}
+              />
             ))}
           </div>
         </div>
