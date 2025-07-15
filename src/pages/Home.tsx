@@ -1,9 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import heroImage from "@/assets/hero-sailboat.jpg";
 import compassIcon from "@/assets/compass-icon.png";
 
@@ -12,17 +11,25 @@ const Home = () => {
   const [whyCurrent, setWhyCurrent] = useState(0);
   const [storiesApi, setStoriesApi] = useState<any>();
   const [storiesCurrent, setStoriesCurrent] = useState(0);
+  const [whyAutoplay, setWhyAutoplay] = useState(true);
+  const [storiesAutoplay, setStoriesAutoplay] = useState(true);
+  const whyIntervalRef = useRef<NodeJS.Timeout>();
+  const storiesIntervalRef = useRef<NodeJS.Timeout>();
 
   // Why Sailcraft carousel auto-rotation
   useEffect(() => {
-    if (!whyApi) return;
+    if (!whyApi || !whyAutoplay) return;
 
-    const autoplay = setInterval(() => {
+    whyIntervalRef.current = setInterval(() => {
       whyApi.scrollNext();
-    }, 2000);
+    }, 3000);
 
-    return () => clearInterval(autoplay);
-  }, [whyApi]);
+    return () => {
+      if (whyIntervalRef.current) {
+        clearInterval(whyIntervalRef.current);
+      }
+    };
+  }, [whyApi, whyAutoplay]);
 
   useEffect(() => {
     if (!whyApi) return;
@@ -35,14 +42,18 @@ const Home = () => {
 
   // Success Stories carousel auto-rotation
   useEffect(() => {
-    if (!storiesApi) return;
+    if (!storiesApi || !storiesAutoplay) return;
 
-    const autoplay = setInterval(() => {
+    storiesIntervalRef.current = setInterval(() => {
       storiesApi.scrollNext();
-    }, 2000);
+    }, 3000);
 
-    return () => clearInterval(autoplay);
-  }, [storiesApi]);
+    return () => {
+      if (storiesIntervalRef.current) {
+        clearInterval(storiesIntervalRef.current);
+      }
+    };
+  }, [storiesApi, storiesAutoplay]);
 
   useEffect(() => {
     if (!storiesApi) return;
@@ -52,6 +63,22 @@ const Home = () => {
       setStoriesCurrent(storiesApi.selectedScrollSnap());
     });
   }, [storiesApi]);
+
+  const handleWhyIndicatorClick = (index: number) => {
+    setWhyAutoplay(false);
+    if (whyIntervalRef.current) {
+      clearInterval(whyIntervalRef.current);
+    }
+    whyApi?.scrollTo(index);
+  };
+
+  const handleStoriesIndicatorClick = (index: number) => {
+    setStoriesAutoplay(false);
+    if (storiesIntervalRef.current) {
+      clearInterval(storiesIntervalRef.current);
+    }
+    storiesApi?.scrollTo(index);
+  };
 
   const metrics = [
     { value: "40+", label: "Partnerships" },
@@ -170,7 +197,7 @@ const Home = () => {
                 className={`w-2 h-2 rounded-full transition-colors ${
                   whyCurrent === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
                 }`}
-                onClick={() => whyApi?.scrollTo(index)}
+                onClick={() => handleWhyIndicatorClick(index)}
               />
             ))}
           </div>
@@ -266,7 +293,7 @@ const Home = () => {
                 className={`w-2 h-2 rounded-full transition-colors ${
                   storiesCurrent === index ? 'bg-sailcraft-teal' : 'bg-gray-300'
                 }`}
-                onClick={() => storiesApi?.scrollTo(index)}
+                onClick={() => handleStoriesIndicatorClick(index)}
               />
             ))}
           </div>
@@ -281,8 +308,8 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
-        <div className="bg-sailcraft-teal rounded-2xl">
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+        <div className="bg-sailcraft-teal rounded-2xl max-w-4xl mx-auto">
+          <div className="text-center px-4 sm:px-6 lg:px-8 py-20">
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Outperform Your Limits?
             </h2>

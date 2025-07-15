@@ -4,9 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 import compassIcon from "@/assets/compass-icon.png";
 
 const Services = () => {
+  const [openCards, setOpenCards] = useState<number[]>([]);
+
+  const toggleCard = (index: number) => {
+    setOpenCards(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
   const services = [
     {
       title: "Digital Marketing",
@@ -94,7 +105,7 @@ const Services = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Collapsible key={index}>
+              <Collapsible key={index} open={openCards.includes(index)} onOpenChange={() => toggleCard(index)}>
                 <Card className="card-sailcraft text-left h-full border-2 border-transparent hover:border-sailcraft-teal/20 transition-all duration-300 group">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-4">
@@ -116,7 +127,9 @@ const Services = () => {
                         className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group/btn"
                       >
                         <span>View Services</span>
-                        <ChevronDown className="h-4 w-4 ml-2 transition-transform duration-200 group-data-[state=open]/btn:rotate-180" />
+                        <ChevronDown className={`h-4 w-4 ml-2 transition-transform duration-200 ${
+                          openCards.includes(index) ? 'rotate-180' : ''
+                        }`} />
                       </Button>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
@@ -185,8 +198,8 @@ const Services = () => {
 
       {/* CTA Section */}
       <section className="py-20 mx-4 sm:mx-6 lg:mx-8 my-12">
-        <div className="bg-sailcraft-teal rounded-2xl">
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 py-20">
+        <div className="bg-sailcraft-teal rounded-2xl max-w-4xl mx-auto">
+          <div className="text-center px-4 sm:px-6 lg:px-8 py-20">
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Transform Your Business?
             </h2>
