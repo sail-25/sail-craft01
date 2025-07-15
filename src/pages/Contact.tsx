@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Page Header */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ 
@@ -55,12 +55,12 @@ const Contact = () => {
         ></div>
         <div className="absolute inset-0 bg-white/60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <img src={compassIcon} alt="Compass" className="h-12 w-12 mx-auto mb-6 compass-spin" />
-            <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 wave-animate">
+          <div className="text-center mb-12 sm:mb-16">
+            <img src={compassIcon} alt="Compass" className="h-10 w-10 sm:h-12 sm:w-12 mx-auto mb-6 compass-spin" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sailcraft-teal mb-6 wave-animate leading-tight">
               Let's Build Your Growth Engine
             </h1>
-            <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-sailcraft-dark max-w-3xl mx-auto leading-relaxed">
               Tell us what you need. We'll show what's possible. Every great partnership starts with a conversation.
             </p>
           </div>
@@ -68,9 +68,9 @@ const Contact = () => {
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <Card className="card-sailcraft">

@@ -118,6 +118,20 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
+    /* Mobile optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Improve touch targets */
+  button, a {
+    touch-action: manipulation;
+  }
+
+  /* Prevent zoom on input focus on iOS */
+  input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    font-size: 16px;
   }
 }
 
@@ -243,5 +257,54 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--sailcraft-teal)), hsl(var(--sailcraft-teal) / 0.9));
+  }
+  
+  .card-sailcraft {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-cta {
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    min-height: 44px; /* Ensure minimum touch target size */
+  }
+  
+  .compass-spin {
+    animation-duration: 30s; /* Slower on mobile for better UX */
+  }
+
+  /* Better spacing for mobile */
+  .grid {
+    gap: 1rem;
+  }
+
+  /* Improved readability */
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* Touch-friendly utilities */
+@layer utilities {
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .min-touch-target {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

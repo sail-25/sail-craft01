@@ -78,15 +78,15 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 wave-texture opacity-10"></div>
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <img src={compassIcon} alt="Compass" className="h-16 w-16 mx-auto mb-6 compass-spin" />
-            <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 fade-in-up">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <img src={compassIcon} alt="Compass" className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 compass-spin" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sailcraft-teal mb-6 fade-in-up leading-tight">
               Our Services
             </h1>
-            <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-lg sm:text-xl text-sailcraft-dark max-w-3xl mx-auto fade-in-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
               Comprehensive solutions tailored for East African SMEs. From strategic planning to technology implementation, 
               we engineer growth across every aspect of your business.
             </p>
@@ -95,36 +95,36 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="w-32 h-1 bg-sailcraft-teal mx-auto mb-6 wave-animate"></div>
-            <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">What We Deliver</h2>
-            <p className="text-xl text-sailcraft-dark">Strategic expertise across nine core business areas</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-sailcraft-teal mb-4">What We Deliver</h2>
+            <p className="text-lg sm:text-xl text-sailcraft-dark">Strategic expertise across nine core business areas</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
               <Collapsible key={index} open={openCards.includes(index)} onOpenChange={() => toggleCard(index)}>
-                <Card className="card-sailcraft text-left h-full border-2 border-transparent hover:border-sailcraft-teal/20 transition-all duration-300 group">
-                  <CardHeader>
+                <Card className="card-sailcraft text-left h-full border-2 border-transparent hover:border-sailcraft-teal/20 transition-all duration-300 group touch-manipulation">
+                  <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-2xl sm:text-3xl group-hover:scale-110 transition-transform duration-300">
                         {service.icon}
                       </div>
-                      <CardTitle className="text-sailcraft-teal text-xl group-hover:text-sailcraft-orange transition-colors duration-300">
+                      <CardTitle className="text-sailcraft-teal text-lg sm:text-xl group-hover:text-sailcraft-orange transition-colors duration-300 leading-tight">
                         {service.title}
                       </CardTitle>
                     </div>
-                    <CardDescription className="text-sailcraft-dark font-medium text-base leading-relaxed">
+                    <CardDescription className="text-sailcraft-dark font-medium text-sm sm:text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow">
+                  <CardContent className="flex-grow pt-0">
                     <CollapsibleTrigger asChild>
                       <Button 
                         variant="outline" 
-                        className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group/btn"
+                        className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group/btn min-touch-target touch-manipulation"
                       >
                         <span>View Services</span>
                         <ChevronDown className={`h-4 w-4 ml-2 transition-transform duration-200 ${
@@ -134,9 +134,9 @@ const Services = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <div className="mt-4 pt-4 border-t border-sailcraft-teal/20">
-                        <div className="space-y-1">
+                        <div className="space-y-2">
                           {service.miniServices.map((miniService, idx) => (
-                            <p key={idx} className="text-sm text-sailcraft-dark/80 italic">
+                            <p key={idx} className="text-xs sm:text-sm text-sailcraft-dark/80 italic leading-relaxed">
                               • {miniService}
                             </p>
                           ))}
@@ -152,17 +152,17 @@ const Services = () => {
       </section>
 
       {/* Why Choose Our Services */}
-      <section className="py-20 bg-white relative">
+      <section className="py-16 sm:py-20 bg-white relative">
         <div className="absolute inset-0 flex items-center justify-center opacity-5">
-          <img src={compassIcon} alt="Compass Watermark" className="h-64 w-64" />
+          <img src={compassIcon} alt="Compass Watermark" className="h-48 w-48 sm:h-64 sm:w-64" />
         </div>
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Why Our Services Work</h2>
-            <p className="text-xl text-sailcraft-dark">Built for East African markets with global expertise</p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-sailcraft-teal mb-4">Why Our Services Work</h2>
+            <p className="text-lg sm:text-xl text-sailcraft-dark">Built for East African markets with global expertise</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-sailcraft-teal rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl font-bold">1</span>

@@ -43,7 +43,7 @@ const About = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="relative py-32 bg-white overflow-hidden">
+      <section className="relative py-20 sm:py-32 bg-white overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2834&q=80" 
@@ -52,9 +52,9 @@ const About = () => {
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Sailboat className="h-16 w-16 mx-auto mb-8 text-sailcraft-teal" />
-          <h1 className="text-6xl font-bold text-sailcraft-teal mb-8">About Sailcraft Solutions</h1>
-          <p className="text-2xl text-sailcraft-teal max-w-4xl mx-auto leading-relaxed">
+          <Sailboat className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 sm:mb-8 text-sailcraft-teal" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-sailcraft-teal mb-6 sm:mb-8 leading-tight">About Sailcraft Solutions</h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-sailcraft-teal max-w-4xl mx-auto leading-relaxed">
             Engineering growth for East Africa's most ambitious SMEs through strategic innovation and AI-powered solutions.
           </p>
         </div>

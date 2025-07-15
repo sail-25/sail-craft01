@@ -130,24 +130,24 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center bg-white overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center text-center bg-white overflow-hidden px-4 py-20">
         <div className="absolute inset-0 wave-texture opacity-10"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${heroImage})` }}
         ></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <img src={compassIcon} alt="Compass" className="h-16 w-16 mx-auto mb-6 compass-spin" />
-          <h1 className="text-5xl md:text-6xl font-bold text-sailcraft-teal mb-6 fade-in-up">
+        <div className="relative z-10 max-w-4xl mx-auto w-full">
+          <img src={compassIcon} alt="Compass" className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 compass-spin" />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-sailcraft-teal mb-6 fade-in-up leading-tight">
             We Engineer Growth—Not Just Campaigns
           </h1>
-          <p className="text-xl md:text-2xl text-sailcraft-dark mb-8 fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg sm:text-xl md:text-2xl text-sailcraft-dark mb-8 fade-in-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
             Unlock your SME's potential with AI-driven strategies tailored for East Africa's dynamic market
           </p>
           <Button 
             asChild 
             size="lg" 
-            className="btn-cta pulse-cta text-lg px-8 py-6 fade-in-up"
+            className="btn-cta pulse-cta text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 fade-in-up w-full sm:w-auto"
             style={{ animationDelay: "0.4s" }}
           >
             <Link to="/contact">Launch My Growth Plan</Link>
@@ -205,19 +205,19 @@ const Home = () => {
       </section>
 
       {/* How We Help Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="w-32 h-1 bg-sailcraft-teal mx-auto mb-6 wave-animate"></div>
-            <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">How We Help</h2>
-            <p className="text-xl text-sailcraft-dark">Strategic growth across three key areas</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-sailcraft-teal mb-4">How We Help</h2>
+            <p className="text-lg sm:text-xl text-sailcraft-dark">Strategic growth across three key areas</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {pillars.map((pillar, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl mb-6">{pillar.icon}</div>
-                <h3 className="text-2xl font-bold text-sailcraft-teal mb-4">{pillar.title}</h3>
-                <p className="text-sailcraft-dark text-lg leading-relaxed">
+              <div key={index} className="text-center px-4">
+                <div className="text-4xl sm:text-5xl mb-4 sm:mb-6">{pillar.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-sailcraft-teal mb-3 sm:mb-4">{pillar.title}</h3>
+                <p className="text-sailcraft-dark text-base sm:text-lg leading-relaxed">
                   {pillar.description}
                 </p>
               </div>

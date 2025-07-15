@@ -26,9 +26,9 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <img src={compassIcon} alt="Sailcraft Solutions" className="h-8 w-8 compass-spin" />
-            <span className="text-xl font-bold text-sailcraft-teal">Sailcraft Solutions</span>
+          <Link to="/" className="flex items-center space-x-2 touch-manipulation">
+            <img src={compassIcon} alt="Sailcraft Solutions" className="h-6 w-6 sm:h-8 sm:w-8 compass-spin" />
+            <span className="text-lg sm:text-xl font-bold text-sailcraft-teal truncate">Sailcraft Solutions</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,18 +56,19 @@ const Navigation = () => {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="touch-manipulation p-2">
                   <Menu className="h-6 w-6 text-sailcraft-dark" />
+                  <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-white">
-                <div className="flex flex-col space-y-4 mt-8">
+              <SheetContent side="right" className="w-[280px] sm:w-[300px] bg-white">
+                <div className="flex flex-col space-y-6 mt-8 px-2">
                   {navItems.map((item) => (
                     <Link
                       key={item.name}
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`text-lg font-medium transition-colors hover:text-sailcraft-teal ${
+                      className={`text-lg font-medium transition-colors hover:text-sailcraft-teal py-2 touch-manipulation ${
                         isActive(item.path) ? "text-sailcraft-teal" : "text-sailcraft-dark"
                       }`}
                     >
@@ -76,7 +77,7 @@ const Navigation = () => {
                   ))}
                   <Button 
                     asChild 
-                    className="btn-cta mt-4"
+                    className="btn-cta mt-6 w-full touch-manipulation"
                     onClick={() => setIsOpen(false)}
                   >
                     <Link to="/contact">Get Started</Link>
