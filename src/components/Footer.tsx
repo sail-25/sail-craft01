@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import compassIcon from "@/assets/compass-icon.png";
+import logoIcon from "/lovable-uploads/c6821b89-c50d-4086-a39d-f65f45bb6a8f.png";
 
 const Footer = () => {
   const services = [
@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src={compassIcon} alt="Sailcraft Solutions" className="h-8 w-8" />
+              <img src={logoIcon} alt="Sailcraft Solutions" className="h-8 w-8" />
               <span className="text-xl font-bold text-sailcraft-teal">Sailcraft Solutions</span>
             </div>
             <p className="text-sailcraft-dark text-sm leading-relaxed">

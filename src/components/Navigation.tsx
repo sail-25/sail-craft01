@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Compass, Menu } from "lucide-react";
-import compassIcon from "@/assets/compass-icon.png";
+import logoIcon from "/lovable-uploads/c6821b89-c50d-4086-a39d-f65f45bb6a8f.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 touch-manipulation">
-            <img src={compassIcon} alt="Sailcraft Solutions" className="h-6 w-6 sm:h-8 sm:w-8 compass-spin" />
+            <img src={logoIcon} alt="Sailcraft Solutions" className="h-6 w-6 sm:h-8 sm:w-8" />
             <span className="text-lg sm:text-xl font-bold text-sailcraft-teal truncate">Sailcraft Solutions</span>
           </Link>
 
