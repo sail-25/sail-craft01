@@ -229,14 +229,10 @@ const SuccessStories = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Our Impact by Numbers</h2>
           </div>
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-sailcraft-orange mb-2">50+</div>
+              <div className="text-4xl font-bold text-sailcraft-orange mb-2">40+</div>
               <div className="text-sailcraft-dark">SMEs Transformed</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-sailcraft-orange mb-2">250%</div>
-              <div className="text-sailcraft-dark">Average Revenue Growth</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-sailcraft-orange mb-2">40%</div>
