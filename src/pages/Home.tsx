@@ -339,7 +339,7 @@ const Home = () => {
               <DialogTrigger asChild>
                 <Button 
                   size="lg" 
-                  className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
+                  className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-6 pulse-cta w-full sm:w-auto"
                 >
                   👉 Claim your free audit now
                 </Button>
