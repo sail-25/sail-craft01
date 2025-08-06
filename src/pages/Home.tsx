@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { useToast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-sailboat.jpg";
 import compassIcon from "@/assets/compass-icon.png";
 
@@ -13,8 +17,11 @@ const Home = () => {
   const [storiesCurrent, setStoriesCurrent] = useState(0);
   const [whyAutoplay, setWhyAutoplay] = useState(true);
   const [storiesAutoplay, setStoriesAutoplay] = useState(true);
+  const [email, setEmail] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const whyIntervalRef = useRef<NodeJS.Timeout>();
   const storiesIntervalRef = useRef<NodeJS.Timeout>();
+  const { toast } = useToast();
 
   // Why Sailcraft carousel auto-rotation
   useEffect(() => {
@@ -78,6 +85,18 @@ const Home = () => {
       clearInterval(storiesIntervalRef.current);
     }
     storiesApi?.scrollTo(index);
+  };
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      toast({
+        title: "Success!",
+        description: "We'll contact you soon to schedule your free growth audit.",
+      });
+      setEmail('');
+      setIsDialogOpen(false);
+    }
   };
 
   const metrics = [
@@ -311,18 +330,42 @@ const Home = () => {
         <div className="bg-sailcraft-teal rounded-2xl max-w-4xl mx-auto">
           <div className="text-center px-4 sm:px-6 lg:px-8 py-20">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Outperform Your Limits?
+              Free Growth Audit
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Join East Africa's top SMEs who trust Sailcraft for their growth journey
+              Unlock hidden potential in your business. Our experts scan your strategy, systems, and digital presence — then deliver clear steps to engineer real growth.
             </p>
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
-            >
-              <Link to="/contact">Schedule a Free Consultation</Link>
-            </Button>
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <Button 
+                  size="lg" 
+                  className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-lg px-8 py-6 pulse-cta"
+                >
+                  👉 Claim your free audit now
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-sailcraft-teal">Get Your Free Growth Audit</DialogTitle>
+                </DialogHeader>
+                <form onSubmit={handleEmailSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <Button type="submit" className="w-full bg-sailcraft-orange hover:bg-sailcraft-orange/90">
+                    Claim My Free Audit
+                  </Button>
+                </form>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>
