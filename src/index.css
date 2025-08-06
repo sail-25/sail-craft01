@@ -189,6 +189,28 @@
   .fade-in-up {
     animation: fade-in-up 0.6s ease-out;
   }
+
+  .timeline-glow {
+    background: linear-gradient(180deg, 
+      hsl(var(--sailcraft-teal) / 0.8), 
+      hsl(var(--sailcraft-teal) / 0.4), 
+      hsl(var(--sailcraft-teal) / 0.8)
+    );
+    animation: timeline-pulse 3s ease-in-out infinite;
+    box-shadow: 
+      0 0 20px hsl(var(--sailcraft-teal) / 0.4),
+      0 0 40px hsl(var(--sailcraft-teal) / 0.2),
+      0 0 60px hsl(var(--sailcraft-teal) / 0.1);
+  }
+
+  .timeline-dot-glow {
+    background: hsl(var(--sailcraft-teal));
+    box-shadow: 
+      0 0 15px hsl(var(--sailcraft-teal) / 0.6),
+      0 0 30px hsl(var(--sailcraft-teal) / 0.4),
+      0 0 45px hsl(var(--sailcraft-teal) / 0.2);
+    animation: dot-pulse 2s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
@@ -257,6 +279,48 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes timeline-pulse {
+  0%, 100% {
+    background: linear-gradient(180deg, 
+      hsl(var(--sailcraft-teal) / 0.8), 
+      hsl(var(--sailcraft-teal) / 0.4), 
+      hsl(var(--sailcraft-teal) / 0.8)
+    );
+    box-shadow: 
+      0 0 20px hsl(var(--sailcraft-teal) / 0.4),
+      0 0 40px hsl(var(--sailcraft-teal) / 0.2),
+      0 0 60px hsl(var(--sailcraft-teal) / 0.1);
+  }
+  50% {
+    background: linear-gradient(180deg, 
+      hsl(var(--sailcraft-teal) / 1), 
+      hsl(var(--sailcraft-teal) / 0.6), 
+      hsl(var(--sailcraft-teal) / 1)
+    );
+    box-shadow: 
+      0 0 30px hsl(var(--sailcraft-teal) / 0.6),
+      0 0 60px hsl(var(--sailcraft-teal) / 0.4),
+      0 0 90px hsl(var(--sailcraft-teal) / 0.2);
+  }
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 15px hsl(var(--sailcraft-teal) / 0.6),
+      0 0 30px hsl(var(--sailcraft-teal) / 0.4),
+      0 0 45px hsl(var(--sailcraft-teal) / 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 0 25px hsl(var(--sailcraft-teal) / 0.8),
+      0 0 50px hsl(var(--sailcraft-teal) / 0.6),
+      0 0 75px hsl(var(--sailcraft-teal) / 0.4);
+    transform: scale(1.1);
   }
 }
 

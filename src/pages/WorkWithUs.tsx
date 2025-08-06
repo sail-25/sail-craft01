@@ -104,47 +104,56 @@ const WorkWithUs = () => {
       </section>
 
       {/* Engagement Process Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sailcraft-teal mb-4">Our Engagement Process</h2>
-            <p className="text-xl text-sailcraft-dark">A structured approach to sustainable growth</p>
+      <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 wave-texture opacity-5"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="w-32 h-1 bg-sailcraft-teal mx-auto mb-6 wave-animate"></div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-sailcraft-teal mb-4">Our Engagement Process</h2>
+            <p className="text-lg sm:text-xl text-sailcraft-dark">A structured approach to sustainable growth</p>
           </div>
           
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-sailcraft-teal/20 hidden lg:block"></div>
+            {/* Glowing Timeline line - Desktop */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-full timeline-glow rounded-full hidden lg:block"></div>
             
-            <div className="space-y-12">
+            {/* Mobile Timeline line */}
+            <div className="absolute left-6 top-0 w-1 h-full bg-sailcraft-teal/30 block lg:hidden"></div>
+            
+            <div className="space-y-8 sm:space-y-12">
               {processSteps.map((step, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  <div className="flex-1 lg:w-1/2">
-                    <Card className={`card-sailcraft ${index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'}`}>
-                      <CardHeader>
-                        <div className="flex items-center gap-4 mb-2">
-                          <div className="w-12 h-12 bg-sailcraft-teal rounded-full flex items-center justify-center text-white font-bold">
+                <div key={index} className={`flex items-center relative ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                  {/* Mobile dot */}
+                  <div className="absolute left-6 w-3 h-3 bg-sailcraft-teal rounded-full border-2 border-white z-10 transform -translate-x-1/2 lg:hidden"></div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 lg:w-1/2 ml-12 lg:ml-0">
+                    <Card className={`card-sailcraft hover:shadow-lg transition-all duration-300 ${index % 2 === 0 ? 'lg:mr-8' : 'lg:ml-8'}`}>
+                      <CardHeader className="pb-3">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-2">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-sailcraft-teal rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0">
                             {step.step}
                           </div>
-                          <div>
-                            <CardTitle className="text-sailcraft-teal">{step.title}</CardTitle>
-                            <Badge variant="outline" className="border-sailcraft-orange text-sailcraft-orange">
+                          <div className="flex-1 min-w-0">
+                            <CardTitle className="text-sailcraft-teal text-lg sm:text-xl mb-1 sm:mb-2">{step.title}</CardTitle>
+                            <Badge variant="outline" className="border-sailcraft-orange text-sailcraft-orange text-xs">
                               {step.duration}
                             </Badge>
                           </div>
                         </div>
                       </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-sailcraft-dark">
+                      <CardContent className="pt-0">
+                        <CardDescription className="text-sailcraft-dark text-sm sm:text-base leading-relaxed">
                           {step.description}
                         </CardDescription>
                       </CardContent>
                     </Card>
                   </div>
                   
-                  {/* Timeline dot for large screens */}
-                  <div className="hidden lg:block w-4 h-4 bg-sailcraft-teal rounded-full border-4 border-white z-10"></div>
+                  {/* Desktop Timeline dot with glow */}
+                  <div className="hidden lg:block w-5 h-5 timeline-dot-glow rounded-full border-3 border-white z-20 relative"></div>
                   
-                  <div className="flex-1 lg:w-1/2"></div>
+                  <div className="flex-1 lg:w-1/2 hidden lg:block"></div>
                 </div>
               ))}
             </div>
