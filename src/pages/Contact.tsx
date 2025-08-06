@@ -202,7 +202,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sailcraft-dark">info.sailcraft@gmail.com</p>
+                  <p className="text-sailcraft-dark">info@sailcraftsolutions.co.ke</p>
                   <p className="text-sm text-sailcraft-dark/70 mt-1">We respond within 24 hours</p>
                 </CardContent>
               </Card>

@@ -49,7 +49,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-sailcraft-dark mb-6">
               <p>+254 704 201 545</p>
               <p>+254 731 060 641</p>
-              <p>info.sailcraft@gmail.com</p>
+              <p>info@sailcraftsolutions.co.ke</p>
             </div>
             <Button 
               asChild 
