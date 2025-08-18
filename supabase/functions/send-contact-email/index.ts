@@ -117,7 +117,7 @@ serve(async (req) => {
     }
 
     const emailData = {
-      from: 'Sailcraft Solutions <noreply@sailcraftsolutions.co.ke>',
+      from: 'Sailcraft Solutions <info.sailcraft@gmail.com>',
       to: ['info.sailcraft@gmail.com'],
       subject: `New Contact Form Submission from ${formData.name}`,
       html: emailHTML,
