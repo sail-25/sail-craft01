@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin } from "lucide-react";
 import compassIcon from "@/assets/compass-icon.png";
+import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -39,46 +40,16 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Try Supabase edge function first, fallback to form submission
-      const supabaseUrl = 'https://fnpkxapvthkxmqpxcgzf.supabase.co/functions/v1/send-contact-email';
-      
-      let response;
-      try {
-        response = await fetch(supabaseUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY || ''}`,
-          },
-          body: JSON.stringify(formData),
-        });
-      } catch (fetchError) {
-        console.error('Supabase function error:', fetchError);
-        // Fallback: Log form data and show success message
-        console.log('Form submission fallback:', formData);
-        
-        toast({
-          title: "Form Submitted!",
-          description: "We've received your message and will contact you directly at info.sailcraft@gmail.com",
-        });
-        
-        // Reset form
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          role: "",
-          lookingFor: "",
-          message: ""
-        });
-        return;
+      // Call Supabase edge function using the client
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to send message');
       }
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response error:', errorText);
-        throw new Error(`Failed to send message: ${response.status}`);
-      }
 
       toast({
         title: "Message Sent Successfully!",
