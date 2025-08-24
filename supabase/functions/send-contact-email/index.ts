@@ -1,6 +1,5 @@
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-
-const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -8,161 +7,115 @@ const corsHeaders = {
 }
 
 interface ContactFormData {
-  name: string
-  email: string
-  phone?: string
-  role: string
-  lookingFor: string
-  message?: string
+  name: string;
+  email: string;
+  phone?: string;
+  role: string;
+  lookingFor: string;
+  message?: string;
 }
 
-serve(async (req) => {
+serve(async (req: Request) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
+    return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const formData: ContactFormData = await req.json()
+    console.log('Contact form submission received');
+    
+    const formData: ContactFormData = await req.json();
+    console.log('Form data:', formData);
 
     // Validate required fields
     if (!formData.name || !formData.email || !formData.role || !formData.lookingFor) {
+      console.error('Missing required fields');
       return new Response(
         JSON.stringify({ error: 'Missing required fields' }),
         { 
           status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
-      )
+      );
     }
 
-    // Create email content
-    const emailHTML = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>New Contact Form Submission</title>
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #1e40af; color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-            .content { background: #f9fafb; padding: 20px; border-radius: 0 0 8px 8px; }
-            .field { margin-bottom: 15px; }
-            .label { font-weight: bold; color: #1e40af; }
-            .value { margin-top: 5px; }
-            .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 14px; color: #6b7280; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>New Contact Form Submission</h1>
-              <p>Sailcraft Solutions Website</p>
-            </div>
-            <div class="content">
-              <div class="field">
-                <div class="label">Name:</div>
-                <div class="value">${formData.name}</div>
-              </div>
-              
-              <div class="field">
-                <div class="label">Email:</div>
-                <div class="value">${formData.email}</div>
-              </div>
-              
-              ${formData.phone ? `
-              <div class="field">
-                <div class="label">Phone:</div>
-                <div class="value">${formData.phone}</div>
-              </div>
-              ` : ''}
-              
-              <div class="field">
-                <div class="label">Role:</div>
-                <div class="value">${formData.role}</div>
-              </div>
-              
-              <div class="field">
-                <div class="label">Looking for:</div>
-                <div class="value">${formData.lookingFor}</div>
-              </div>
-              
-              ${formData.message ? `
-              <div class="field">
-                <div class="label">Message:</div>
-                <div class="value">${formData.message}</div>
-              </div>
-              ` : ''}
-              
-              <div class="footer">
-                <p>This message was sent from the Sailcraft Solutions contact form on ${new Date().toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })} EAT</p>
-              </div>
-            </div>
+    // Create HTML email content
+    const htmlContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #0d9488;">New Contact Form Submission</h2>
+        
+        <div style="background: #f0fdfa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+          <h3 style="color: #0d9488; margin-top: 0;">Contact Details</h3>
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Email:</strong> ${formData.email}</p>
+          ${formData.phone ? `<p><strong>Phone:</strong> ${formData.phone}</p>` : ''}
+          <p><strong>Role:</strong> ${formData.role}</p>
+          <p><strong>Looking for:</strong> ${formData.lookingFor}</p>
+        </div>
+        
+        ${formData.message ? `
+          <div style="background: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
+            <h3 style="color: #0d9488; margin-top: 0;">Message</h3>
+            <p>${formData.message}</p>
           </div>
-        </body>
-      </html>
-    `
+        ` : ''}
+        
+        <div style="margin-top: 30px; padding: 20px; background: #0d9488; color: white; text-align: center; border-radius: 8px;">
+          <p style="margin: 0;">New lead from Sailcraft Solutions website</p>
+        </div>
+      </div>
+    `;
 
-    // Send email using Resend
-    if (!RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not set')
+    // Check for Resend API key
+    const resendApiKey = Deno.env.get('RESEND_API_KEY');
+    if (!resendApiKey) {
+      console.error('RESEND_API_KEY not found');
       return new Response(
         JSON.stringify({ error: 'Email service not configured' }),
         { 
           status: 500, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
-      )
+      );
     }
 
-    const emailData = {
-      from: 'Sailcraft Solutions <info.sailcraft@gmail.com>',
+    console.log('Initializing Resend...');
+    const resend = new Resend(resendApiKey);
+
+    // Send email using Resend
+    console.log('Sending email...');
+    const emailResponse = await resend.emails.send({
+      from: 'Sailcraft Solutions <onboarding@resend.dev>',
       to: ['info.sailcraft@gmail.com'],
       subject: `New Contact Form Submission from ${formData.name}`,
-      html: emailHTML,
-      reply_to: formData.email,
-    }
+      html: htmlContent,
+    });
 
-    const resendResponse = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailData),
-    })
-
-    if (!resendResponse.ok) {
-      const error = await resendResponse.text()
-      console.error('Resend API error:', error)
-      return new Response(
-        JSON.stringify({ error: 'Failed to send email' }),
-        { 
-          status: 500, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        }
-      )
-    }
-
-    const result = await resendResponse.json()
-    console.log('Email sent successfully:', result)
+    console.log('Email sent successfully:', emailResponse);
 
     return new Response(
-      JSON.stringify({ success: true, message: 'Email sent successfully' }),
-      { 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      JSON.stringify({ 
+        success: true, 
+        message: 'Email sent successfully',
+        emailResponse 
+      }),
+      {
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }
-    )
+    );
 
   } catch (error) {
-    console.error('Error in send-contact-email function:', error)
+    console.error('Error in send-contact-email function:', error);
     return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
-      { 
-        status: 500, 
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      JSON.stringify({ 
+        error: 'Failed to send email',
+        details: error.message 
+      }),
+      {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }
-    )
+    );
   }
-})
+});
