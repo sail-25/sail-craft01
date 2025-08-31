@@ -136,14 +136,15 @@ const Contact = () => {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email" className="text-sailcraft-dark">Email *</Label>
+                        <Label htmlFor="email" className="text-sailcraft-dark font-medium">Email *</Label>
                         <Input
                           id="email"
                           type="email"
                           value={formData.email}
                           onChange={(e) => handleInputChange("email", e.target.value)}
                           required
-                          className="mt-1 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal transition-all"
+                          placeholder="your@email.com"
+                          className="mt-1 border-sailcraft-teal/20 focus:ring-2 focus:ring-sailcraft-teal focus:border-sailcraft-teal transition-all hover:border-sailcraft-teal/40"
                         />
                       </div>
                     </div>
