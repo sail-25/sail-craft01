@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-sailboat.jpg";
 import compassIcon from "@/assets/compass-icon.png";
 
@@ -87,15 +88,43 @@ const Home = () => {
     storiesApi?.scrollTo(index);
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    try {
+      console.log('Submitting audit request for email:', email);
+      
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: 'Growth Audit Request',
+          email: email,
+          role: 'prospect',
+          lookingFor: 'growth-audit',
+          message: 'Requesting a free growth audit for my business.'
+        }
+      });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
+
+      console.log('Audit request sent successfully:', data);
+      
       toast({
         title: "Success!",
         description: "We'll contact you soon to schedule your free growth audit.",
       });
       setEmail('');
       setIsDialogOpen(false);
+    } catch (error) {
+      console.error('Error submitting audit request:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit request. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
