@@ -58,7 +58,7 @@ const Navigation = () => {
               <SheetTrigger asChild>
                 <Button variant="ghost" size="sm" className="touch-manipulation p-2">
                   <List className="h-6 w-6 text-sailcraft-dark" />
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] sm:w-[300px] bg-white">
