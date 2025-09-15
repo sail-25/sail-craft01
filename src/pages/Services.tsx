@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown } from "lucide-react";
+import { CaretDown } from "phosphor-react";
 import { useState } from "react";
 import compassIcon from "@/assets/compass-icon.png";
 
@@ -127,7 +127,7 @@ const Services = () => {
                         className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group/btn min-touch-target touch-manipulation"
                       >
                         <span>View Services</span>
-                        <ChevronDown className={`h-4 w-4 ml-2 transition-transform duration-200 ${
+                        <CaretDown className={`h-4 w-4 ml-2 transition-transform duration-200 ${
                           openCards.includes(index) ? 'rotate-180' : ''
                         }`} />
                       </Button>

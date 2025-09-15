@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Envelope, MapPin } from "phosphor-react";
 import compassIcon from "@/assets/compass-icon.png";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -241,7 +241,7 @@ const Contact = () => {
               <Card className="card-sailcraft">
                 <CardHeader>
                   <CardTitle className="text-sailcraft-teal flex items-center gap-2">
-                    <Mail className="h-5 w-5" />
+                    <Envelope className="h-5 w-5" />
                     Email
                   </CardTitle>
                 </CardHeader>

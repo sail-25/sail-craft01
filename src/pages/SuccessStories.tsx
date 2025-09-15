@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown } from "lucide-react";
+import { CaretDown } from "phosphor-react";
 
 const SuccessStories = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -171,7 +171,7 @@ const SuccessStories = () => {
                         className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group"
                       >
                         <span>View Full Case Study</span>
-                        <ChevronDown className="h-4 w-4 ml-2 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                        <CaretDown className="h-4 w-4 ml-2 transition-transform duration-200 group-data-[state=open]:rotate-180" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>

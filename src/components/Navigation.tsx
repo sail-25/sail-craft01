@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Compass, Menu } from "lucide-react";
+import { Compass, List } from "phosphor-react";
 import logoIcon from "/lovable-uploads/c6821b89-c50d-4086-a39d-f65f45bb6a8f.png";
 
 const Navigation = () => {
@@ -57,7 +57,7 @@ const Navigation = () => {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="sm" className="touch-manipulation p-2">
-                  <Menu className="h-6 w-6 text-sailcraft-dark" />
+                  <List className="h-6 w-6 text-sailcraft-dark" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
