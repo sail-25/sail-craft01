@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Compass, List } from "phosphor-react";
+import { Compass, List as HamburgerMenu } from "phosphor-react";
 import logoIcon from "/lovable-uploads/c6821b89-c50d-4086-a39d-f65f45bb6a8f.png";
 
+// Navigation component - Updated to use Phosphor icons
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -57,7 +58,7 @@ const Navigation = () => {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="sm" className="touch-manipulation p-2">
-                  <List className="h-6 w-6 text-sailcraft-dark" />
+                  <HamburgerMenu className="h-6 w-6 text-sailcraft-dark" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
