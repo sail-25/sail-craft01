@@ -3,12 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Sailcraft Solutions | Charting Paths of  possibility for SME Growth</title>
-
+<script type="module" crossorigin>
+      // Handle GitHub Pages SPA routing
+      (function() {
+        const redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <title>Sailcraft Solutions | Charting Paths of  possibility </title>
+ <link rel="modulepreload" href="/src/main.tsx" crossorigin="anonymous" />
     <meta name="description" content="Sailcraft Solutions offers expert SME business consulting in Kenya. We specialize in enterprise development, operational optimization, and digital transformation. Charting paths of possibility since 2024." />
 
-    <meta name="keywords" content="Best business, SME consulting in Kenya for business development, enterprise growth, operational excellence, digital transformation, business optimization Kenya" />
+    <meta name="keywords" content="Best digital agency in Kenya for business development, enterprise growth, operational excellence, digital transformation, business optimization Kenya" />
     <meta name="author" content="Sailcraft Solutions" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
@@ -159,9 +168,15 @@
         }
       })(window.location);
     </script>
+    <script>
+      if (window.location.pathname !== '/' && !window.location.pathname.endsWith('.html')) {
+        sessionStorage.redirect = window.location.href;
+        window.location.href = '/';
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+ <script type="module" src="/src/main.tsx" crossorigin></script>
   </body>
 </html>
