@@ -26,6 +26,8 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Force cache invalidation - 2025-01-17
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
