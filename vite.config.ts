@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     // Add proper MIME type handling
     middlewares: [
-      (req, res, next) => {
+      (req: any, res: any, next: any) => {
         // Ensure JavaScript files are served with correct MIME type
         if (req.url?.endsWith('.js')) {
           res.setHeader('Content-Type', 'application/javascript');
