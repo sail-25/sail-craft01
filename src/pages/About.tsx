@@ -1,24 +1,24 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Boat } from "phosphor-react";
+import { Boat, Brain, CheckCircle, Trophy } from "phosphor-react";
 
 const About = () => {
   const values = [
     {
       title: "AI Insight",
       description: "Harness the power of artificial intelligence to drive data-driven decisions and optimize performance.",
-      icon: "🧠"
+      icon: Brain
     },
     {
       title: "Client Selectivity", 
       description: "We choose partners we can truly impact, ensuring every engagement delivers meaningful results.",
-      icon: "✓"
+      icon: CheckCircle
     },
     {
       title: "Results Guarantee",
       description: "Measurable success or we refine our approach until your goals are achieved.",
-      icon: "🏆"
+      icon: Trophy
     }
   ];
 
@@ -123,7 +123,7 @@ const About = () => {
             {values.map((value, index) => (
               <Card key={index} className="card-sailcraft text-center">
                 <CardHeader>
-                  <div className="text-4xl mb-4">{value.icon}</div>
+                  <value.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
                   <CardTitle className="text-sailcraft-teal">{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
