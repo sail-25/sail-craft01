@@ -226,10 +226,10 @@ const Contact = () => {
             <div className="space-y-6">
               <Card className="card-sailcraft">
                 <CardHeader>
-                  <CardTitle className="text-sailcraft-teal flex items-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    Phone
-                  </CardTitle>
+                   <CardTitle className="text-sailcraft-teal flex items-center gap-2">
+                     <Phone className="h-5 w-5 hover:text-sailcraft-orange transition-all duration-300 hover:scale-110" />
+                     Phone
+                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sailcraft-dark">+254 704 201 545</p>
@@ -240,10 +240,10 @@ const Contact = () => {
 
               <Card className="card-sailcraft">
                 <CardHeader>
-                  <CardTitle className="text-sailcraft-teal flex items-center gap-2">
-                    <Envelope className="h-5 w-5" />
-                    Email
-                  </CardTitle>
+                   <CardTitle className="text-sailcraft-teal flex items-center gap-2">
+                     <Envelope className="h-5 w-5 hover:text-sailcraft-orange transition-all duration-300 hover:scale-110" />
+                     Email
+                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sailcraft-dark">info@sailcraftsolutions.co.ke</p>
@@ -253,10 +253,10 @@ const Contact = () => {
 
               <Card className="card-sailcraft">
                 <CardHeader>
-                  <CardTitle className="text-sailcraft-teal flex items-center gap-2">
-                    <MapPin className="h-5 w-5" />
-                    Location
-                  </CardTitle>
+                   <CardTitle className="text-sailcraft-teal flex items-center gap-2">
+                     <MapPin className="h-5 w-5 hover:text-sailcraft-orange transition-all duration-300 hover:scale-110" />
+                     Location
+                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sailcraft-dark">Moi Avenue, Nairobi</p>

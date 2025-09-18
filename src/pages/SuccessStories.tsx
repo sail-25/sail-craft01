@@ -171,7 +171,7 @@ const SuccessStories = () => {
                         className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group"
                       >
                         <span>View Full Case Study</span>
-                        <CaretDown className="h-4 w-4 ml-2 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                        <CaretDown className="h-4 w-4 ml-2 transition-all duration-300 hover:text-sailcraft-orange hover:scale-110 group-data-[state=open]:rotate-180" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>

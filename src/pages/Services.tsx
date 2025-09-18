@@ -127,7 +127,7 @@ const Services = () => {
                         className="w-full border-sailcraft-teal text-sailcraft-teal hover:bg-sailcraft-teal hover:text-white group/btn min-touch-target touch-manipulation"
                       >
                         <span>View Services</span>
-                        <CaretDown className={`h-4 w-4 ml-2 transition-transform duration-200 ${
+                        <CaretDown className={`h-4 w-4 ml-2 transition-all duration-300 hover:text-sailcraft-orange hover:scale-110 ${
                           openCards.includes(index) ? 'rotate-180' : ''
                         }`} />
                       </Button>

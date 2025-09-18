@@ -53,7 +53,7 @@ const About = () => {
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Boat className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 sm:mb-8 text-sailcraft-teal" />
+          <Boat className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 sm:mb-8 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-sailcraft-teal mb-6 sm:mb-8 leading-tight">About Sailcraft Solutions</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-sailcraft-teal max-w-4xl mx-auto leading-relaxed">
             Engineering growth for East Africa's most ambitious SMEs through strategic innovation and AI-powered solutions.

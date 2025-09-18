@@ -57,8 +57,8 @@ const Navigation = () => {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="touch-manipulation p-2">
-                  <HamburgerMenu className="h-6 w-6 text-sailcraft-dark" weight="bold" />
+                 <Button variant="ghost" size="sm" className="touch-manipulation p-2 group">
+                  <HamburgerMenu className="h-6 w-6 text-sailcraft-dark group-hover:text-sailcraft-teal transition-all duration-300 group-hover:scale-110" weight="bold" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
