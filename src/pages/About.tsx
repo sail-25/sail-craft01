@@ -53,7 +53,7 @@ const About = () => {
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Boat className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 sm:mb-8 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
+          <Boat className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 sm:mb-8 text-sailcraft-orange hover:text-sailcraft-teal transition-all duration-300 hover:scale-110 cursor-pointer" />
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-sailcraft-teal mb-6 sm:mb-8 leading-tight">About Sailcraft Solutions</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-sailcraft-teal max-w-4xl mx-auto leading-relaxed">
             Engineering growth for East Africa's most ambitious SMEs through strategic innovation and AI-powered solutions.
@@ -72,7 +72,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-teal/10 rounded-full mb-8">
-                <Target className="h-8 w-8 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
+                <Target className="h-8 w-8 text-sailcraft-orange hover:text-sailcraft-teal transition-all duration-300 hover:scale-110 cursor-pointer" />
               </div>
               <h3 className="text-2xl font-bold text-sailcraft-teal mb-6">Mission</h3>
               <p className="text-base text-sailcraft-dark leading-relaxed mb-8">
@@ -123,7 +123,7 @@ const About = () => {
             {values.map((value, index) => (
               <Card key={index} className="card-sailcraft text-center">
                 <CardHeader>
-                  <value.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
+                  <value.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-orange hover:text-sailcraft-teal transition-all duration-300 hover:scale-110 cursor-pointer" />
                   <CardTitle className="text-sailcraft-teal">{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>

@@ -224,7 +224,7 @@ const Home = () => {
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <Card className="card-sailcraft text-center h-full">
                     <CardHeader>
-                      <item.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
+                      <item.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-orange hover:text-sailcraft-teal transition-all duration-300 hover:scale-110 cursor-pointer" />
                       <CardTitle className="text-sailcraft-teal">{item.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -264,7 +264,7 @@ const Home = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {pillars.map((pillar, index) => (
               <div key={index} className="text-center px-4">
-                <pillar.icon className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-4 sm:mb-6 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
+                <pillar.icon className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-4 sm:mb-6 text-sailcraft-orange hover:text-sailcraft-teal transition-all duration-300 hover:scale-110 cursor-pointer" />
                 <h3 className="text-xl sm:text-2xl font-bold text-sailcraft-teal mb-3 sm:mb-4">{pillar.title}</h3>
                 <p className="text-sailcraft-dark text-base sm:text-lg leading-relaxed">
                   {pillar.description}
