@@ -110,7 +110,7 @@ const Services = () => {
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-4">
                       <service.icon className="h-8 w-8 sm:h-10 sm:w-10 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
-                      <CardTitle className="text-sailcraft-teal text-lg sm:text-xl group-hover:text-sailcraft-orange transition-colors duration-300 leading-tight">
+                      <CardTitle className="text-sailcraft-orange text-lg sm:text-xl group-hover:text-sailcraft-teal transition-colors duration-300 leading-tight">
                         {service.title}
                       </CardTitle>
                     </div>
