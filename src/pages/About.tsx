@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Boat, Brain, CheckCircle, Trophy } from "phosphor-react";
+import { Boat, Brain, CheckCircle, Trophy, Target, Rocket } from "phosphor-react";
 
 const About = () => {
   const values = [
@@ -72,7 +72,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-teal/10 rounded-full mb-8">
-                <div className="text-3xl">🎯</div>
+                <Target className="h-8 w-8 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
               </div>
               <h3 className="text-2xl font-bold text-sailcraft-teal mb-6">Mission</h3>
               <p className="text-base text-sailcraft-dark leading-relaxed mb-8">
@@ -82,7 +82,7 @@ const About = () => {
             </div>
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-sailcraft-orange/10 rounded-full mb-8">
-                <div className="text-3xl">🚀</div>
+                <Rocket className="h-8 w-8 text-sailcraft-orange hover:text-sailcraft-teal transition-all duration-300 hover:scale-110 cursor-pointer" />
               </div>
               <h3 className="text-2xl font-bold text-sailcraft-teal mb-6">Vision</h3>
               <p className="text-base text-sailcraft-dark leading-relaxed mb-8">

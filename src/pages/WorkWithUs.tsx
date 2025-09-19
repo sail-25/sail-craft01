@@ -2,25 +2,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { Target, Rocket } from "phosphor-react";
 
 const WorkWithUs = () => {
   const criteria = [
     {
       title: "Profile", 
       description: "Vision-driven, seeking growth, digital transformation, market expansion, or sustainable impact — and ready to act on it",
-      icon: "🎯",
+      icon: Target,
       requirement: "Vision-Driven"
     },
     {
       title: "Mindset",
       description: "Growth-oriented leadership committed to scaling and innovation",
-      icon: "🚀", 
+      icon: Rocket, 
       requirement: "Growth-Oriented"
     },
     {
       title: "Commitment",
       description: "Ready to invest time, resources, and energy in transformational change",
-      icon: "🎯",
+      icon: Target,
       requirement: "Ready to Invest"
     }
   ];
@@ -86,7 +87,7 @@ const WorkWithUs = () => {
             {criteria.map((criterion, index) => (
               <Card key={index} className="card-sailcraft text-center">
                 <CardHeader>
-                  <div className="text-4xl mb-4">{criterion.icon}</div>
+                  <criterion.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
                   <CardTitle className="text-sailcraft-teal">{criterion.title}</CardTitle>
                   <Badge variant="secondary" className="bg-sailcraft-orange/10 text-sailcraft-orange">
                     {criterion.requirement}

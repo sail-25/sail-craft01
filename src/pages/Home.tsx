@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-sailboat.jpg";
 import compassIcon from "@/assets/compass-icon.png";
+import { TrendUp, Gear, Target, Buildings, Globe, ArrowRight } from "phosphor-react";
 
 const Home = () => {
   const [whyApi, setWhyApi] = useState<any>();
@@ -138,17 +139,17 @@ const Home = () => {
     {
       title: "Revenue Growth",
       description: "Maximize profits with data-driven sales tactics and AI-enhanced marketing strategies.",
-      icon: "📈"
+      icon: TrendUp
     },
     {
       title: "Operational Efficiency", 
       description: "Streamline processes for cost savings and improved productivity across your operations.",
-      icon: "⚙️"
+      icon: Gear
     },
     {
       title: "Strategic Planning",
       description: "Build a roadmap for long-term success with comprehensive growth strategies.",
-      icon: "🎯"
+      icon: Target
     }
   ];
 
@@ -156,22 +157,22 @@ const Home = () => {
     {
       title: "Holistic Solutions",
       description: "A one-stop shop for all SME needs, reducing complexity.",
-      icon: "🏢"
+      icon: Buildings
     },
     {
       title: "Customized Approach", 
       description: "Tailored strategies designed to meet specific business goals.",
-      icon: "🎯"
+      icon: Target
     },
     {
       title: "Proven Results",
       description: "A track record of empowering SMEs to achieve sustainable growth.",
-      icon: "📈"
+      icon: TrendUp
     },
     {
       title: "Local Advantage",
       description: "Deep understanding of Kenya's business environment, ensuring relevance and impact.",
-      icon: "🌍"
+      icon: Globe
     }
   ];
 
@@ -223,7 +224,7 @@ const Home = () => {
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <Card className="card-sailcraft text-center h-full">
                     <CardHeader>
-                      <div className="text-4xl mb-4">{item.icon}</div>
+                      <item.icon className="h-12 w-12 mx-auto mb-4 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
                       <CardTitle className="text-sailcraft-teal">{item.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -263,7 +264,7 @@ const Home = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {pillars.map((pillar, index) => (
               <div key={index} className="text-center px-4">
-                <div className="text-4xl sm:text-5xl mb-4 sm:mb-6">{pillar.icon}</div>
+                <pillar.icon className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-4 sm:mb-6 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
                 <h3 className="text-xl sm:text-2xl font-bold text-sailcraft-teal mb-3 sm:mb-4">{pillar.title}</h3>
                 <p className="text-sailcraft-dark text-base sm:text-lg leading-relaxed">
                   {pillar.description}
@@ -370,7 +371,8 @@ const Home = () => {
                   size="lg" 
                   className="bg-sailcraft-orange hover:bg-sailcraft-orange/90 text-white text-sm sm:text-lg px-4 py-3 sm:px-8 sm:py-6 pulse-cta w-full sm:w-auto"
                 >
-                  👉 Claim your free audit now
+                  <ArrowRight className="h-4 w-4 mr-2" />
+                  Claim your free audit now
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md">

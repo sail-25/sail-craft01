@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { CaretDown } from "phosphor-react";
+import { CaretDown, Megaphone, Desktop, Palette, Gear, Briefcase, ChartBar, Users, Scales, Headphones } from "phosphor-react";
 import { useState } from "react";
 import compassIcon from "@/assets/compass-icon.png";
 
@@ -23,55 +23,55 @@ const Services = () => {
       title: "Digital Marketing",
       description: "Elevate your brand with digital marketing campaigns, digital content creation, graphic design, social media management, marketing automation, advert design and publication, brand design, and growth optimization strategies.",
       miniServices: ["Digital campaigns", "Content creation", "Graphic design", "Social media management", "Marketing automation", "Advert design & publishing", "Brand design", "Growth strategies"],
-      icon: "📣"
+      icon: Megaphone
     },
     {
       title: "Technology Solutions",
       description: "Lead digitally with custom software development, responsive website design, AI-driven e-commerce platforms, robust IT support, and AI design and system implementation.",
       miniServices: ["Software development", "Website design", "AI e-commerce", "IT support", "AI systems & implementation"],
-      icon: "💻"
+      icon: Desktop
     },
     {
       title: "Creative Suite",
       description: "Transform your presence with AI-driven content creation, brand design, social PR, influencer management, creative strategy, and growth-focused campaigns.",
       miniServices: ["Content creation", "Brand design", "Social PR", "Influencer management", "Public figure branding", "Creative strategy", "Campaign growth"],
-      icon: "🎨"
+      icon: Palette
     },
     {
       title: "Operational Improvement",
       description: "Optimize operations with AI-driven process optimization, workflow automation, resource management, efficiency audits, and operational analytics for peak performance.",
       miniServices: ["AI process optimization", "Workflow automation", "Resource management", "Efficiency audits", "Operational analytics"],
-      icon: "⚙️"
+      icon: Gear
     },
     {
       title: "Financial Services",
       description: "Master your finances with expert auditing, tax preparation and returns, compliance management, and precise accounting for seamless operations.",
       miniServices: ["Auditing", "Tax preparation & returns", "Compliance management", "Accounting"],
-      icon: "💼"
+      icon: Briefcase
     },
     {
       title: "Business Development",
       description: "Propel growth with strategic planning, market analysis, partnership development, and innovative scaling strategies for long-term success.",
       miniServices: ["Strategic planning", "Market analysis", "Partnership development", "Scaling strategies"],
-      icon: "📊"
+      icon: ChartBar
     },
     {
       title: "Human Resources",
       description: "Strengthen your team with comprehensive HR services, HR system implementation, talent acquisition, and tailored training programs.",
       miniServices: ["HR services", "HR systems", "Talent acquisition", "Team training"],
-      icon: "🧑‍💼"
+      icon: Users
     },
     {
       title: "Legal and Compliance",
       description: "Stay compliant with expert legal advisory, automated compliance tracking, contract management, and regulatory guidance.",
       miniServices: ["Legal advisory", "Compliance tracking", "Contract management", "Regulatory support"],
-      icon: "⚖️"
+      icon: Scales
     },
     {
       title: "Customer Service Improvement",
       description: "Boost loyalty with AI-powered CRM integration, personalized support strategies, real-time feedback systems, and customer experience optimization.",
       miniServices: ["CRM integration", "Personalized support", "Feedback systems", "Customer experience design"],
-      icon: "🎧"
+      icon: Headphones
     }
   ];
 
@@ -109,9 +109,7 @@ const Services = () => {
                 <Card className="card-sailcraft text-left h-full border-2 border-transparent hover:border-sailcraft-teal/20 transition-all duration-300 group touch-manipulation">
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="text-2xl sm:text-3xl group-hover:scale-110 transition-transform duration-300">
-                        {service.icon}
-                      </div>
+                      <service.icon className="h-8 w-8 sm:h-10 sm:w-10 text-sailcraft-teal hover:text-sailcraft-orange transition-all duration-300 hover:scale-110 cursor-pointer" />
                       <CardTitle className="text-sailcraft-teal text-lg sm:text-xl group-hover:text-sailcraft-orange transition-colors duration-300 leading-tight">
                         {service.title}
                       </CardTitle>
