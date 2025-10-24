@@ -35,6 +35,9 @@ jobs:
         run: npm run build
         env:
           VITE_BASE_URL: 'https://sailcraftsolutions.co.ke'
+      
+      - name: Add .nojekyll file
+        run: touch dist/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
