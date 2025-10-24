@@ -5,6 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CaretDown } from "phosphor-react";
+import fashionRetailImage from "@/assets/case-fashion-retail.jpg";
+import civicTechImage from "@/assets/case-civic-tech.jpg";
+import manufacturingImage from "@/assets/case-manufacturing.jpg";
+import foodBeverageImage from "@/assets/case-food-beverage.jpg";
+import legalServicesImage from "@/assets/case-legal-services.jpg";
 
 const SuccessStories = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -25,7 +30,7 @@ const SuccessStories = () => {
         "Inventory turnover cycle shortened by 40%"
       ],
       testimonial: "Sailcraft didn't just design ads — they understood our culture and made it marketable. Our sales literally doubled.",
-      coverImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=250&fit=crop&auto=format"
+      coverImage: fashionRetailImage
     },
     {
       title: "Pollwise Transformation",
@@ -39,7 +44,7 @@ const SuccessStories = () => {
         "New recurring revenue stream launched"
       ],
       testimonial: "We moved from a promising idea to a viable business with Sailcraft's direction.",
-      coverImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop&auto=format"
+      coverImage: civicTechImage
     },
     {
       title: "Thika Textiles",
@@ -53,7 +58,7 @@ const SuccessStories = () => {
         "100% increase in RFQ (Request for Quotation) submissions via new portal"
       ],
       testimonial: "Sailcraft turned our back-office into a client-winning machine — our systems finally work for us, not against us.",
-      coverImage: "https://images.unsplash.com/photo-1558618666-fcce8ea8b727?w=400&h=250&fit=crop&auto=format"
+      coverImage: manufacturingImage
     },
     {
       title: "Kilimani Bites – From New Spot to Local Favorite",
@@ -68,7 +73,7 @@ const SuccessStories = () => {
         "A consistent walk-in base + corporate lunch deals secured"
       ],
       testimonial: "From a logo to a packed lunch rush—Sailcraft walked with us every step. It's like having your own marketing and ops team from day one.",
-      coverImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=250&fit=crop&auto=format"
+      coverImage: foodBeverageImage
     },
     {
       title: "S&P Mwangagi Advocates – Brand Modernization + Automation",
@@ -83,7 +88,7 @@ const SuccessStories = () => {
         "Elevated firm's image in RFP submissions and networking"
       ],
       testimonial: "Sailcraft reshaped how we operate and how we're perceived — it's no longer just business as usual.",
-      coverImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=250&fit=crop&auto=format"
+      coverImage: legalServicesImage
     }
   ];
 

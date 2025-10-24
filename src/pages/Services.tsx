@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CaretDown, Megaphone, Desktop, Palette, Gear, Briefcase, ChartBar, Users, Scales, Headphones } from "phosphor-react";
 import { useState } from "react";
-import compassIcon from "@/assets/compass-icon.png";
+import compassIcon from "@/assets/tech-compass-icon.png";
 
 const Services = () => {
   const [openCards, setOpenCards] = useState<number[]>([]);

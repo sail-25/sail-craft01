@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Boat, Brain, CheckCircle, Trophy, Target, Rocket } from "phosphor-react";
+import aboutHeroImage from "@/assets/about-hero-background.jpg";
 
 const About = () => {
   const values = [
@@ -47,7 +48,7 @@ const About = () => {
       <section className="relative py-20 sm:py-32 bg-white overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2834&q=80" 
+            src={aboutHeroImage} 
             alt="East African Business Landscape" 
             className="w-full h-full object-cover opacity-10"
           />

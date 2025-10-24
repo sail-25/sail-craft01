@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logoIcon from "/lovable-uploads/c6821b89-c50d-4086-a39d-f65f45bb6a8f.png";
+import logoIcon from "@/assets/sailcraft-logo-icon.png";
 
 const Footer = () => {
   const services = [
