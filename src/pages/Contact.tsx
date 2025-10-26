@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Envelope, MapPin } from "phosphor-react";
-import compassIcon from "@/assets/tech-compass-icon.png";
+import compassIcon from "@/assets/compass-icon.png";
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {

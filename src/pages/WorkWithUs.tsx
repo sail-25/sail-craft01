@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Target, Rocket } from "phosphor-react";
+import workWithUsHero from "@/assets/work-with-us-hero.jpg";
 
 const WorkWithUs = () => {
   const criteria = [
@@ -62,8 +63,13 @@ const WorkWithUs = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Header Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 wave-texture opacity-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${workWithUsHero})` }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-sailcraft-teal mb-6">
               Work With Us
