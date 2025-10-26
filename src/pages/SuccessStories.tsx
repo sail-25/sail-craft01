@@ -108,12 +108,11 @@ const SuccessStories = () => {
         ></div>
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 wave-animate">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sailcraft-teal mb-6 wave-animate leading-tight">
               What Growth Looks Like
             </h1>
-            <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto">
-              See how we've turned challenges into opportunities for East Africa's most ambitious SMEs. 
-              Real businesses, real results, real impact.
+            <p className="text-lg sm:text-xl text-sailcraft-dark max-w-3xl mx-auto leading-relaxed">
+              Real businesses, real results, real impact—see how we transform challenges into opportunities
             </p>
           </div>
         </div>

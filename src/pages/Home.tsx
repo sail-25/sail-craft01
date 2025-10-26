@@ -9,7 +9,6 @@ import { useEffect, useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-business.jpg";
-import compassIcon from "@/assets/compass-icon.png";
 import { TrendUp, Gear, Target, Buildings, Globe, ArrowRight } from "phosphor-react";
 
 const Home = () => {
@@ -186,7 +185,6 @@ const Home = () => {
           style={{ backgroundImage: `url(${heroImage})` }}
         ></div>
         <div className="relative z-10 max-w-4xl mx-auto w-full">
-          <img src={compassIcon} alt="Compass" className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 compass-spin" />
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-sailcraft-teal mb-6 fade-in-up leading-tight">
             We Engineer Growth—Not Just Campaigns
           </h1>

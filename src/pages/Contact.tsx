@@ -8,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Envelope, MapPin } from "phosphor-react";
-import compassIcon from "@/assets/compass-icon.png";
 import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
@@ -98,12 +97,11 @@ const Contact = () => {
         <div className="absolute inset-0 bg-white/60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <img src={compassIcon} alt="Compass" className="h-10 w-10 sm:h-12 sm:w-12 mx-auto mb-6 compass-spin" />
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sailcraft-teal mb-6 wave-animate leading-tight">
               Let's Build Your Growth Engine
             </h1>
             <p className="text-lg sm:text-xl text-sailcraft-dark max-w-3xl mx-auto leading-relaxed">
-              Tell us what you need. We'll show what's possible. Every great partnership starts with a conversation.
+              Tell us what you need—we'll show what's possible
             </p>
           </div>
         </div>

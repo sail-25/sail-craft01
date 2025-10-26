@@ -71,11 +71,11 @@ const WorkWithUs = () => {
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-sailcraft-teal mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sailcraft-teal mb-6 leading-tight">
               Work With Us
             </h1>
-            <p className="text-xl text-sailcraft-dark max-w-3xl mx-auto">
-              We're selective about our partnerships. Here's what we look for and how we work together to engineer your growth.
+            <p className="text-lg sm:text-xl text-sailcraft-dark max-w-3xl mx-auto leading-relaxed">
+              We're selective about partnerships—here's what we look for and how we collaborate
             </p>
           </div>
         </div>

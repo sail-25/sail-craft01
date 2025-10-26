@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CaretDown, Megaphone, Desktop, Palette, Gear, Briefcase, ChartBar, Users, Scales, Headphones } from "phosphor-react";
 import { useState } from "react";
-import compassIcon from "@/assets/compass-icon.png";
 import servicesHeroImage from "@/assets/services-hero.jpg";
 
 const Services = () => {
@@ -87,13 +86,11 @@ const Services = () => {
         ></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
-            <img src={compassIcon} alt="Compass" className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 compass-spin" />
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sailcraft-teal mb-6 fade-in-up leading-tight">
               Our Services
             </h1>
             <p className="text-lg sm:text-xl text-sailcraft-dark max-w-3xl mx-auto fade-in-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
-              Comprehensive solutions tailored for East African SMEs. From strategic planning to technology implementation, 
-              we engineer growth across every aspect of your business.
+              Comprehensive solutions tailored for East African SMEs—from strategic planning to technology implementation
             </p>
           </div>
         </div>
@@ -156,9 +153,6 @@ const Services = () => {
 
       {/* Why Choose Our Services */}
       <section className="py-16 sm:py-20 bg-white relative">
-        <div className="absolute inset-0 flex items-center justify-center opacity-5">
-          <img src={compassIcon} alt="Compass Watermark" className="h-48 w-48 sm:h-64 sm:w-64" />
-        </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-sailcraft-teal mb-4">Why Our Services Work</h2>
