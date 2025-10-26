@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Compass, List as HamburgerMenu } from "phosphor-react"; // Force icon refresh v2
-import logoIcon from "@/assets/sailcraft-logo-icon.png";
+import logoIcon from "/lovable-uploads/c6821b89-c50d-4086-a39d-f65f45bb6a8f.png";
 
 // Navigation component - Updated to use Phosphor icons
 const Navigation = () => {

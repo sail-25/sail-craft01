@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CaretDown, Megaphone, Desktop, Palette, Gear, Briefcase, ChartBar, Users, Scales, Headphones } from "phosphor-react";
 import { useState } from "react";
-import compassIcon from "@/assets/tech-compass-icon.png";
+import compassIcon from "@/assets/compass-icon.png";
+import servicesHeroImage from "@/assets/services-hero.jpg";
 
 const Services = () => {
   const [openCards, setOpenCards] = useState<number[]>([]);
@@ -80,6 +81,10 @@ const Services = () => {
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 wave-texture opacity-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${servicesHeroImage})` }}
+        ></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-12 sm:mb-16">
             <img src={compassIcon} alt="Compass" className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-6 compass-spin" />

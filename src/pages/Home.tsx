@@ -9,7 +9,7 @@ import { useEffect, useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-business.jpg";
-import compassIcon from "@/assets/tech-compass-icon.png";
+import compassIcon from "@/assets/compass-icon.png";
 import { TrendUp, Gear, Target, Buildings, Globe, ArrowRight } from "phosphor-react";
 
 const Home = () => {

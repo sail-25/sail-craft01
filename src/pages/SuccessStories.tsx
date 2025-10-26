@@ -10,6 +10,7 @@ import civicTechImage from "@/assets/case-civic-tech.jpg";
 import manufacturingImage from "@/assets/case-manufacturing.jpg";
 import foodBeverageImage from "@/assets/case-food-beverage.jpg";
 import legalServicesImage from "@/assets/case-legal-services.jpg";
+import successStoriesHeroImage from "@/assets/success-stories-hero.jpg";
 
 const SuccessStories = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -99,8 +100,13 @@ const SuccessStories = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Intro Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 wave-texture opacity-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${successStoriesHeroImage})` }}
+        ></div>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-sailcraft-teal mb-6 wave-animate">
               What Growth Looks Like
