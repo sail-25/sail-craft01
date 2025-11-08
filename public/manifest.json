@@ -1,0 +1,16 @@
+{
+  "name": "Sailcraft Solutions",
+  "short_name": "Sailcraft",
+  "description": "Charting Paths of Possibility - Strategic Consulting & Innovation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0EA5E9",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
