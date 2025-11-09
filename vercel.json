@@ -12,7 +12,7 @@
   ],
   "headers": [
     {
-      "source": "/assets/(.*)\\.js",
+      "source": "/assets/:path*.js",
       "headers": [
         {
           "key": "Content-Type",
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "source": "/assets/(.*)\\.mjs",
+      "source": "/assets/:path*.mjs",
       "headers": [
         {
           "key": "Content-Type",
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "source": "/assets/(.*)\\.css",
+      "source": "/assets/:path*.css",
       "headers": [
         {
           "key": "Content-Type",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/:path*",
       "headers": [
         {
           "key": "Cache-Control",
