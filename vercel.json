@@ -12,11 +12,11 @@
   ],
   "headers": [
     {
-      "source": "/assets/:path*.js",
+      "source": "/assets/(.*).js",
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
+          "value": "application/javascript"
         },
         {
           "key": "Cache-Control",
@@ -25,11 +25,11 @@
       ]
     },
     {
-      "source": "/assets/:path*.mjs",
+      "source": "/assets/(.*).mjs",
       "headers": [
         {
           "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
+          "value": "application/javascript"
         },
         {
           "key": "Cache-Control",
@@ -38,21 +38,12 @@
       ]
     },
     {
-      "source": "/assets/:path*.css",
+      "source": "/assets/(.*).css",
       "headers": [
         {
           "key": "Content-Type",
-          "value": "text/css; charset=utf-8"
+          "value": "text/css"
         },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/:path*",
-      "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
