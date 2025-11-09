@@ -62,7 +62,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 mt-12 pt-8 text-center">
           <p className="text-sailcraft-dark/60 text-sm">
-            © 2025 Sailcraft Solutions. All rights reserved. Engineering growth for East African SMEs.
+            © 2025 Sailcraft Solutions. All rights reserved.
           </p>
         </div>
       </div>
